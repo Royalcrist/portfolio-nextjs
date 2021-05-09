@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#9b9b9b"/>
+      <stop offset="1" stop-color="#565656"/>
+    </linearGradient>
+  </defs>
+  <g id="Group_419" data-name="Group 419" transform="translate(-705 -701)">
+    <path id="Path_680" data-name="Path 680" d="M48,0A48,48,0,1,1,0,48,48,48,0,0,1,48,0Z" transform="translate(705 701)" fill="url(#linear-gradient)"/>
+    <g id="Layer_2" data-name="Layer 2" transform="translate(734.245 719.868)">
+      <g id="Layer_1" data-name="Layer 1" transform="translate(0 0)">
+        <path id="path0_fill" data-name="path0 fill" d="M9.545,1685.76a9.548,9.548,0,0,0,9.545-9.545v-9.545H9.545a9.545,9.545,0,1,0,0,19.09Z" transform="translate(0 -1628.49)" fill="#fff"/>
+        <path id="path1_fill" data-name="path1 fill" d="M0,842.875a9.549,9.549,0,0,1,9.545-9.545H19.09v19.09H9.545A9.549,9.549,0,0,1,0,842.875Z" transform="translate(0 -814.24)" fill="#fff" opacity="0.8"/>
+        <path id="path1_fill-2" data-name="path1 fill" d="M0,9.545A9.549,9.549,0,0,1,9.545,0H19.09V19.09H9.545A9.548,9.548,0,0,1,0,9.545Z" transform="translate(0 0)" fill="#fff"/>
+        <path id="path2_fill" data-name="path2 fill" d="M833.33,0h9.545a9.545,9.545,0,1,1,0,19.09H833.33Z" transform="translate(-814.24 0)" fill="#fff" opacity="0.6"/>
+        <path id="path3_fill" data-name="path3 fill" d="M852.42,842.875a9.545,9.545,0,1,1-9.545-9.545A9.549,9.549,0,0,1,852.42,842.875Z" transform="translate(-814.24 -814.24)" fill="#fff" opacity="0.6"/>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,111 @@
+.project-features {
+    grid-column: 4 / 13;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1em;
+    justify-items: center;
+    align-items: center;
+    margin: 6em 0 6em;
+
+    &:last-child {
+        margin-bottom: 16em;
+    }
+}
+
+.feature-container {
+    margin: 5em 0 0;
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+
+    &-reverse {
+        grid-column: 1;
+        justify-self: start;
+    }
+}
+
+.feature-title {
+    display: inline-block;
+    text-transform: uppercase;
+    margin-bottom: 1em;
+    font-weight: 700;
+}
+
+.feature-description {
+    color: var(--text-secundary);
+}
+
+.feature-img {
+    width: 80%;
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: start;
+
+    &-reverse {
+        grid-column: 2;
+        justify-self: end;
+    }
+}
+
+@media screen and (max-width: 1024px) and (orientation: portrait) {
+    .project-features {
+        grid-column: 2 / 8;
+        grid-template-columns: 1fr;
+        margin: 6em 0 6em;
+
+        &-reverse {
+            grid-column: 4 / 10;
+        }
+
+        &:last-child {
+            margin-bottom: 10em;
+        }
+    }
+
+    .feature-container {
+        margin: 2em 0 0;
+        grid-column: 1;
+        grid-row: 2;
+        justify-self: start;
+
+        &-reverse {
+            grid-column: 1;
+            grid-row: 2;
+            justify-self: start;
+        }
+    }
+
+    .feature-title {
+        display: inline-block;
+        text-transform: uppercase;
+        margin-bottom: 1em;
+        font-weight: 700;
+    }
+
+    .feature-description {
+        color: var(--text-secundary);
+    }
+
+    .feature-img {
+        width: 80%;
+        grid-column: 1;
+        grid-row: 1;
+        justify-self: start;
+
+        &-reverse {
+            grid-column: 1;
+            grid-row: 1;
+            justify-self: end;
+        }
+    }
+}
+
+@media screen and (max-width: 570px) and (orientation: portrait) {
+    .project-features {
+        grid-column: 2 / 5;
+
+        &-reverse {
+            grid-column: 3 / 6;
+        }
+    }
+}

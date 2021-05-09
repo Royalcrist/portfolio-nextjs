@@ -1,0 +1,486 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap');
+
+:root {
+	// Text sizes
+	--description-size: 14px;
+	--p-options-size: 16px;
+	--label-size: 28px;
+	--subtitle-size: 35px;
+	--title-size: 50px;
+
+	// colors
+	--text-primary: #000000;
+	--text-secundary: #5f5f5f;
+	--secundary-option: #929292;
+	--background: white;
+	--accent-blue: #009de3;
+	--accent-orange: #ff9438;
+	--accent-yellow: #ffbb00;
+	--gradient-blue: linear-gradient(-135deg, #00ffcc, #1f77ff);
+	--gradient-orange: linear-gradient(-135deg, #ff9438, #ff4400);
+	--gradient-yellow: linear-gradient(-135deg, #ffbb00, #ff8800);
+	--gradient-red: linear-gradient(-135deg, #ff7167, #ff2810);
+}
+
+html {
+	background-color: #f7f7fa;
+	align-items: center;
+	justify-content: center;
+}
+
+body {
+	margin: 0;
+	height: 100vh;
+	height: calc(var(--vh, 1vh) * 100);
+	font-family: 'Montserrat', sans-serif;
+	font-size: 18px;
+	line-height: 1.6;
+	letter-spacing: 1px;
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	font-weight: 500;
+}
+
+::-webkit-scrollbar {
+	display: none;
+}
+
+#__next {
+	overflow: hidden;
+	height: 100%;
+	width: 100%;
+	max-width: 1600px;
+	min-width: 320px;
+	max-height: 800px;
+	position: relative;
+	box-shadow: 0 20px 20px rgba($color: #000000, $alpha: 0.2);
+}
+
+h1 {
+	font-size: var(--title-size);
+	color: var(--text-primary);
+	line-height: 1.2;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+h2 {
+	font-size: var(--subtitle-size);
+	color: var(--text-primary);
+	font-weight: 600;
+	line-height: 1;
+}
+
+h3 {
+	font-size: var(--label-size);
+	font-weight: 700;
+	color: var(--text-primary);
+}
+
+a,
+button {
+	outline: none;
+	-webkit-tap-highlight-color: transparent;
+}
+
+.grid-column {
+	display: grid;
+	grid-template-columns: repeat(14, 6.5%);
+	grid-gap: 0 0.7%;
+}
+
+.blue {
+	background-image: var(--gradient-blue);
+
+	&::before {
+		background-image: var(--gradient-blue);
+	}
+}
+
+.orange {
+	background-image: var(--gradient-orange);
+
+	&::before {
+		background-image: var(--gradient-orange);
+	}
+}
+
+.yellow {
+	background-image: var(--gradient-yellow);
+
+	&::before {
+		background-image: var(--gradient-yellow);
+	}
+}
+
+.red {
+	background-image: var(--gradient-red);
+
+	&::before {
+		background-image: var(--gradient-red);
+	}
+}
+
+@media screen and (min-width: 1400px) and (min-height: 900px) and (orientation: landscape) {
+	:root {
+		// Text sizes
+		--p-options-size: 16px;
+		--description-size: 14px;
+		--label-size: 28px;
+		--subtitle-size: 36px;
+		--title-size: 54px;
+	}
+
+	body {
+		font-size: 20px;
+	}
+
+	#app {
+		max-height: 1080px;
+	}
+}
+
+@media screen and (min-width: 1200px) and (max-height: 670px) and (orientation: landscape) {
+	:root {
+		// Text sizes
+		--p-options-size: 14px;
+		--description-size: 11px;
+		--label-size: 24px;
+		--subtitle-size: 30px;
+		--title-size: 40px;
+	}
+
+	body {
+		font-size: 16px;
+	}
+}
+
+@media screen and (max-width: 1200px) and (orientation: landscape) {
+	:root {
+		// Text sizes
+		--p-options-size: 12px;
+		--description-size: 11px;
+		--label-size: 20px;
+		--subtitle-size: 30px;
+		--title-size: 40px;
+	}
+
+	body {
+		font-size: 16px;
+	}
+}
+
+@media screen and (max-width: 910px) {
+	:root {
+		// Text sizes
+		--p-options-size: 12px;
+		--description-size: 10px;
+		--label-size: 18px;
+		--subtitle-size: 30px;
+		--title-size: 40px;
+	}
+
+	body {
+		font-size: 16px;
+	}
+}
+
+//Portrait Tablets
+
+@media screen and (max-width: 1024px) and (orientation: portrait) {
+	.grid-column {
+		display: grid;
+		grid-template-columns: repeat(10, 6.8%);
+		grid-gap: 0 3.3%;
+	}
+
+	#app {
+		max-height: calc(var(--vh, 1vh) * 100);
+	}
+}
+
+@media screen and (max-width: 1024px) and (orientation: portrait) {
+	:root {
+		// Text sizes
+		--p-options-size: 14px;
+		--description-size: 11px;
+		--label-size: 20px;
+		--subtitle-size: 30px;
+		--title-size: 40px;
+	}
+
+	body {
+		font-size: 16px;
+	}
+}
+
+@media screen and (max-width: 1024px) and (min-height: 1200px) and (orientation: portrait) {
+	:root {
+		// Text sizes
+		--p-options-size: 22px;
+		--description-size: 18px;
+		--label-size: 36px;
+		--subtitle-size: 50px;
+		--title-size: 72px;
+	}
+
+	body {
+		font-size: 24px;
+	}
+}
+
+@media screen and (max-width: 910px) and (min-height: 750px) and (orientation: portrait) {
+	:root {
+		// Text sizes
+		--p-options-size: 14px;
+		--description-size: 12px;
+		--label-size: 24px;
+		--subtitle-size: 30px;
+		--title-size: 40px;
+	}
+
+	body {
+		font-size: 16px;
+	}
+}
+
+@media screen and (max-width: 910px) and (min-height: 1000px) and (orientation: portrait) {
+	:root {
+		// Text sizes
+		--p-options-size: 18px;
+		--description-size: 14px;
+		--label-size: 28px;
+		--subtitle-size: 42px;
+		--title-size: 54px;
+	}
+
+	body {
+		font-size: 20px;
+	}
+}
+
+@media screen and (max-width: 910px) and (min-height: 1250px) and (orientation: portrait) {
+	:root {
+		// Text sizes
+		--p-options-size: 22px;
+		--description-size: 16px;
+		--label-size: 32px;
+		--subtitle-size: 52px;
+		--title-size: 72px;
+	}
+
+	body {
+		font-size: 24px;
+	}
+}
+
+@media screen and (max-width: 910px) and (min-width: 769px) and (orientation: portrait) {
+	:root {
+		// Text sizes
+		--p-options-size: 20px;
+		--description-size: 14px;
+		--label-size: 28px;
+		--subtitle-size: 42px;
+		--title-size: 52px;
+	}
+
+	body {
+		font-size: 22px;
+		letter-spacing: 0.5px;
+	}
+}
+
+@media screen and (max-width: 768px) and (min-width: 571px) and (orientation: portrait) {
+	:root {
+		// Text sizes
+		--p-options-size: 16px;
+		--description-size: 14px;
+		--label-size: 28px;
+		--subtitle-size: 40px;
+		--title-size: 48px;
+	}
+
+	body {
+		font-size: 20px;
+		letter-spacing: 0.5px;
+	}
+}
+
+//Portrait Phone
+
+@media screen and (max-width: 570px) and (orientation: portrait) {
+	.grid-column {
+		display: grid;
+		grid-template-columns: 8.5% repeat(4, 17%) 8.5%;
+		grid-gap: 0 3%;
+	}
+}
+
+@media screen and (max-width: 570px) and (min-width: 481px) and (orientation: portrait) {
+	:root {
+		// Text sizes
+		--p-options-size: 14px;
+		--description-size: 11px;
+		--label-size: 20px;
+		--subtitle-size: 36px;
+		--title-size: 44px;
+	}
+
+	body {
+		font-size: 16px;
+		letter-spacing: 0.5px;
+	}
+}
+
+@media screen and (max-width: 570px) and (min-width: 481px) and (min-height: 960px) and (orientation: portrait) {
+	:root {
+		// Text sizes
+		--p-options-size: 16px;
+		--description-size: 12px;
+		--label-size: 24px;
+		--subtitle-size: 40px;
+		--title-size: 50px;
+	}
+
+	body {
+		font-size: 18px;
+		letter-spacing: 0.5px;
+	}
+}
+
+@media screen and (max-width: 480px) and (min-width: 421px) and (orientation: portrait) {
+	:root {
+		// Text sizes
+		--p-options-size: 12px;
+		--description-size: 11px;
+		--label-size: 20px;
+		--subtitle-size: 24px;
+		--title-size: 36px;
+	}
+
+	body {
+		font-size: 14px;
+		letter-spacing: 0.5px;
+	}
+}
+
+@media screen and (max-width: 480px) and (min-width: 421px) and (min-height: 800px) and (orientation: portrait) {
+	:root {
+		// Text sizes
+		--p-options-size: 14px;
+		--subtitle-size: 30px;
+		--title-size: 40px;
+	}
+
+	body {
+		font-size: 16px;
+		letter-spacing: 0.5px;
+	}
+}
+
+@media screen and (max-width: 420px) and (min-width: 381px) and (orientation: portrait) {
+	:root {
+		// Text sizes
+		--p-options-size: 12px;
+		--description-size: 12px;
+		--label-size: 20px;
+		--subtitle-size: 24px;
+		--title-size: 36px;
+	}
+
+	body {
+		font-size: 13px;
+		letter-spacing: 0.5px;
+	}
+}
+
+@media screen and (max-width: 420px) and (min-width: 381px) and (max-height: 650px) and (orientation: portrait) {
+	:root {
+		// Text sizes
+		--p-options-size: 11px;
+		--subtitle-size: 24px;
+		--title-size: 32px;
+	}
+
+	body {
+		font-size: 12px;
+		letter-spacing: 0.5px;
+	}
+}
+
+@media screen and (max-width: 420px) and (min-width: 381px) and (min-height: 840px) and (orientation: portrait) {
+	:root {
+		// Text sizes
+		--p-options-size: 14px;
+		--subtitle-size: 30px;
+		--title-size: 40px;
+	}
+
+	body {
+		font-size: 16px;
+		letter-spacing: 0.5px;
+	}
+}
+
+@media screen and (max-width: 380px) and (min-width: 341px) and (orientation: portrait) {
+	:root {
+		// Text sizes
+		--p-options-size: 11px;
+		--description-size: 11px;
+		--label-size: 20px;
+		--subtitle-size: 24px;
+		--title-size: 32px;
+	}
+
+	body {
+		font-size: 12px;
+		letter-spacing: 0.5px;
+	}
+}
+
+@media screen and (max-width: 340px) {
+	:root {
+		// Text sizes
+		--p-options-size: 10px;
+		--description-size: 10px;
+		--label-size: 18px;
+		--subtitle-size: 20px;
+		--title-size: 26px;
+	}
+
+	body {
+		font-size: 10px;
+		letter-spacing: 0.5px;
+	}
+}
+
+//Landscape Phone
+
+@media screen and (max-width: 910px) and (max-height: 570px) and (orientation: landscape) {
+	:root {
+		// Text sizes
+		--p-options-size: 11px;
+		--subtitle-size: 25px;
+		--title-size: 36px;
+	}
+
+	body {
+		font-size: 14px;
+	}
+}
+
+@media screen and (max-width: 570px) and (max-height: 640px) and (orientation: landscape) {
+	:root {
+		// Text sizes
+		--p-options-size: 10px;
+		--subtitle-size: 25px;
+		--title-size: 26px;
+	}
+
+	body {
+		font-size: 12px;
+	}
+}

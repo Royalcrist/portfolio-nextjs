@@ -1,0 +1,215 @@
+.project-page {
+  height: 100%;
+  width: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  background-color: var(--background);
+}
+
+.preview {
+  position: relative;
+  height: 100%;
+  width: 100%;
+
+  &-img-container {
+    grid-column: 5 / 15;
+    height: 250%;
+    max-height: 760px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+    border-radius: 0 0 0 20em;
+  }
+
+  &-info {
+    grid-column: 2 / 5;
+
+    & > h1 {
+      margin: 3em 0 0.5em;
+      text-transform: uppercase;
+    }
+
+    & > span {
+      color: var(--text-secundary);
+      letter-spacing: 2px;
+    }
+  }
+}
+
+.project-title {
+  display: inline-block;
+  margin: 0 0 2em;
+  grid-column: 5 / 12;
+  color: var(--text-primary);
+  text-transform: uppercase;
+
+  &:first-child {
+    margin-top: 4em;
+  }
+}
+
+.project-description {
+  grid-column: 5 / 12;
+  margin-bottom: 7em;
+  color: var(--text-secundary);
+
+  &:last-child {
+    margin-bottom: 9em;
+  }
+}
+
+.project-subtitle {
+  display: inline-block;
+  margin: 0 0 1.5em;
+  grid-column: 5 / 12;
+  color: var(--text-primary);
+  text-transform: uppercase;
+}
+
+.project-img {
+  max-width: 100%;
+  grid-column: 4 / 14;
+  margin-bottom: 14em;
+
+  &-small {
+    grid-column: 5 / 13;
+    margin: 4em 0 16em;
+  }
+}
+
+.project-problem {
+  background-size: 100% 6em, 100% calc(100% - 12em), 100% 6em;
+  background-repeat: no-repeat;
+  background-position: center top, center center, center bottom;
+
+  & > * {
+    color: white;
+  }
+
+  & span > * {
+    color: white;
+  }
+}
+
+@media screen and (max-width: 1024px) and (orientation: portrait) {
+  .preview {
+    &-img-container {
+      grid-column: 6 / 12;
+      border-radius: 0 0 0 12em;
+    }
+
+    &-info {
+      & > h1 {
+        margin: 2em 0 0.5em;
+      }
+    }
+  }
+
+  .project-title {
+    margin: 4em 0 1.2em;
+    grid-column: 2 / 10;
+
+    &:first-child {
+      margin-top: 4em;
+    }
+  }
+
+  .project-description {
+    grid-column: 2 / 10;
+    margin-bottom: 7em;
+    color: var(--text-secundary);
+
+    &:last-child {
+      margin-bottom: 10em;
+    }
+  }
+
+  .project-subtitle {
+    display: inline-block;
+    margin: 3em 0 2em;
+    grid-column: 2 / 10;
+    color: var(--text-primary);
+    text-transform: uppercase;
+  }
+
+  .project-img {
+    max-width: 100%;
+    grid-column: 2 / 10;
+    margin-bottom: 7em;
+
+    &-small {
+      grid-column: 2 / 10;
+      margin: 4em 0 14em;
+    }
+  }
+
+  .project-problem {
+    background-size: 100% 5em, 100% calc(100% - 9em), 100% 5em;
+
+    & > * {
+      color: white;
+    }
+
+    & span > * {
+      color: white;
+    }
+  }
+
+  .project-problem {
+    background-size: 100% 5em, 100% calc(100% - 9em), 100% 5em;
+  }
+}
+
+@media screen and (max-width: 570px) and (orientation: portrait) {
+  .preview {
+    &-img-container {
+      grid-column: 1 / 7;
+      height: 65vh;
+      height: calc(var(--vh, 1vh) * 65);
+      border-radius: 0 0 0 10em;
+    }
+
+    &-info {
+      grid-column: 2 / 4;
+      margin-top: -5em;
+
+      & > h1 {
+        margin: 0 0 0.5em;
+      }
+    }
+  }
+
+  .project-title {
+    margin: 4em 0 1em;
+    grid-column: 2 / 6;
+
+    &:first-child {
+      margin-top: 4em;
+    }
+  }
+
+  .project-description {
+    grid-column: 2 / 6;
+    margin-bottom: 7em;
+
+    &:last-child {
+      margin-bottom: 10em;
+    }
+  }
+
+  .project-subtitle {
+    margin: 3em 0 2em;
+    grid-column: 2 / 6;
+  }
+
+  .project-img {
+    max-width: 100%;
+    grid-column: 2 / 6;
+    margin-bottom: 7em;
+  }
+
+  .project-problem {
+    background-size: 100% 3em, 100% calc(100% - 6em), 100% 3em;
+  }
+}

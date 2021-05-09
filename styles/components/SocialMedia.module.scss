@@ -1,0 +1,41 @@
+@import '../_mixins.scss';
+
+.media {
+	font-size: var(--p-options-size);
+	display: inline-block;
+	position: relative;
+	height: 4.4em;
+	width: 4.4em;
+	margin-left: 2.4em;
+	background-size: cover;
+	border-radius: 1.8em;
+	@include skmpsm-style;
+
+	&:first-child {
+		margin: 0;
+	}
+
+	& img {
+		position: absolute;
+		top: 0;
+		right: 0;
+		height: 100%;
+		width: 100%;
+		opacity: 0.35;
+		transition: ease-in-out 0.3s;
+	}
+
+	& img:hover {
+		opacity: 0.8;
+	}
+}
+
+//Small Desktop and Landscape tablet
+
+@media screen and (max-width: 1200px) {
+	.media {
+		height: 5em;
+		width: 5em;
+		border-radius: 1.9em;
+	}
+}

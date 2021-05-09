@@ -1,0 +1,25 @@
+@mixin lang-item {
+    display: inline-block;
+    position: relative;
+    color: white;
+    z-index: 0;
+}
+
+@mixin lang-item-shadow {
+    content: "";
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    height: 80%;
+    width: 80%;
+    border-radius: 3.5em;
+    filter: blur(0.5em);
+    z-index: -1;
+}
+
+@mixin skmpsm-style {
+    background-color: #f7f7fa;
+    border: 1px solid #f2f2f2;
+    box-shadow: inset 4px 1px 6px rgba(0, 0, 0, 0.1),
+        inset -4px -3px 6px rgba(255, 255, 255, 1);
+}

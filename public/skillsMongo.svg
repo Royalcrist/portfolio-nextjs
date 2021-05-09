@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#9b9b9b"/>
+      <stop offset="1" stop-color="#565656"/>
+    </linearGradient>
+  </defs>
+  <g id="Group_430" data-name="Group 430" transform="translate(-1526 -917)">
+    <circle id="Ellipse_35" data-name="Ellipse 35" cx="48" cy="48" r="48" transform="translate(1526 917)" fill="url(#linear-gradient)"/>
+    <g id="Layer_2" data-name="Layer 2" transform="translate(1560.301 935.486)">
+      <g id="Layer_1" data-name="Layer 1" transform="translate(0.004)">
+        <path id="Path_689" data-name="Path 689" d="M136.139,590.318s-2.376,1.19-2.8,3.218a29.54,29.54,0,0,0-.153,6.207l-1.57-.537s.191-8.007-2.683-8.582a1.631,1.631,0,0,1-.2-.655h7.383Z" transform="translate(-117.784 -539.805)" fill="#fff" fill-rule="evenodd"/>
+        <path id="Path_690" data-name="Path 690" d="M175.1,53.92s13.755-9.043,10.538-27.855c-3.1-13.678-10.422-18.161-11.224-19.884A19.309,19.309,0,0,1,172.69,2.81l.575,38.045c0,.038-1.19,11.649,1.839,13.066" transform="translate(-158.007 -2.571)" fill="#fff" fill-rule="evenodd"/>
+        <path id="Path_691" data-name="Path 691" d="M12.182,51.761S-.731,42.949.036,27.433C.768,11.916,9.883,4.291,11.645,2.912A3.563,3.563,0,0,0,12.91,0c.8,1.724.651,25.785.765,28.62C14.02,39.539,13.063,49.693,12.182,51.761Z" transform="translate(-0.004)" fill="#fff" fill-rule="evenodd"/>
+      </g>
+    </g>
+  </g>
+</svg>
