@@ -1,10 +1,16 @@
 import React, { createContext, useState } from 'react';
+import { useQuery } from '@apollo/client';
+import { HOME } from '../queries/queries';
+import client from '../lib/apollo-client';
 
 export const ProjectsContext = createContext();
 
 export const ProjectsProvider = props => {
 	const [index, setIndex] = useState(0);
 	const [language, setLanguange] = useState('english');
+	const { data, loading, error } = useQuery(HOME);
+
+	const home = data;
 
 	const projects = [
 		{
@@ -43,7 +49,16 @@ export const ProjectsProvider = props => {
 
 	return (
 		<ProjectsContext.Provider
-			value={{ projects, index, setIndex, cases, language, setLanguange }}
+			value={{
+				projects,
+				index,
+				setIndex,
+				cases,
+				language,
+				setLanguange,
+				home,
+				loading,
+			}}
 		>
 			{props.children}
 		</ProjectsContext.Provider>

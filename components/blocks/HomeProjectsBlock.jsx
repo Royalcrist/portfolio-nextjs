@@ -1,19 +1,18 @@
 import React, { useContext } from 'react';
 import Image from 'next/image';
-import styles from '../styles/components/HomeProjects.module.scss';
-import homeStyles from '../styles/Home.module.scss';
+import styles from '../../styles/components/HomeProjects.module.scss';
+import homeStyles from '../../styles/Home.module.scss';
 
 // Components
-import Button from './Button';
+import Button from '../Button';
 
 // Provider
-import { ProjectsContext } from '../providers/ProjectsProvider';
+import { ProjectsContext } from '../../providers/ProjectsProvider';
 
-const HomeProjects = () => {
+export default function HomeProjectsBlock() {
 	const { projects, index, setIndex } = useContext(ProjectsContext);
-	const { name, description, img, imgLq, url, color, isDisable } = projects[
-		index
-	];
+	const { name, description, img, imgLq, url, color, isDisable } =
+		projects[index];
 
 	return (
 		<section id='projects' className={`grid-column ${homeStyles['container']}`}>
@@ -111,6 +110,4 @@ const HomeProjects = () => {
 			</div>
 		</section>
 	);
-};
-
-export default HomeProjects;
+}

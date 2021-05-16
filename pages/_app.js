@@ -2,6 +2,9 @@ import { useEffect } from 'react';
 import { ProjectsProvider } from '../providers/ProjectsProvider.jsx';
 import '../styles/globals.scss';
 
+import { ApolloProvider } from '@apollo/client';
+import client from '../lib/apollo-client';
+
 function MyApp({ Component, pageProps }) {
 	useEffect(() => {
 		const vh = window.innerHeight * 0.01;
@@ -14,9 +17,11 @@ function MyApp({ Component, pageProps }) {
 	}, []);
 
 	return (
-		<ProjectsProvider>
-			<Component {...pageProps} />
-		</ProjectsProvider>
+		<ApolloProvider client={client}>
+			<ProjectsProvider>
+				<Component {...pageProps} />
+			</ProjectsProvider>
+		</ApolloProvider>
 	);
 }
 
