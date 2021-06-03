@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { ProjectsProvider } from '../providers/ProjectsProvider.jsx';
+import { ProjectsProvider } from '../providers/Provider.jsx';
 import '../styles/globals.scss';
 
 import { ApolloProvider } from '@apollo/client';

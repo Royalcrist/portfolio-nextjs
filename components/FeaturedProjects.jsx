@@ -6,7 +6,7 @@ import styles from '../styles/components/FeaturedProjects.module.scss';
 import Button from './Button';
 
 // Providers
-import { ProjectsContext } from '../providers/ProjectsProvider.jsx';
+import { ProjectsContext } from '../providers/Provider.jsx';
 
 const FeaturedProjects = props => {
 	const { projects } = useContext(ProjectsContext);

@@ -1,18 +1,34 @@
-import React, { useContext } from 'react';
+import { useState, useContext } from 'react';
 import Image from 'next/image';
 import styles from '../../styles/components/HomeProjects.module.scss';
 import homeStyles from '../../styles/Home.module.scss';
 
+// Providers
+import { ProjectsContext } from '../../providers/Provider.jsx';
+
 // Components
 import Button from '../Button';
+import { apiBase } from '../../helpers/helpers';
 
-// Provider
-import { ProjectsContext } from '../../providers/ProjectsProvider';
+export default function HomeProjectsBlock({ section }) {
+	const { projectsData, projectsLoading, projectsError, setColor } =
+		useContext(ProjectsContext);
 
-export default function HomeProjectsBlock() {
-	const { projects, index, setIndex } = useContext(ProjectsContext);
-	const { name, description, img, imgLq, url, color, isDisable } =
-		projects[index];
+	if (projectsLoading) return null;
+
+	const [index, setIndex] = useState(0);
+	const projects = projectsData.projects;
+	const {
+		id,
+		name,
+		description,
+		homepageImage: img,
+		slug,
+		color,
+		actionText,
+		commingSoon,
+		commingSoonText,
+	} = projects[index];
 
 	return (
 		<section id='projects' className={`grid-column ${homeStyles['container']}`}>
@@ -23,19 +39,7 @@ export default function HomeProjectsBlock() {
 					className={`${homeStyles['home-pic']} ${homeStyles['hq']} ${homeStyles['project']}'`}
 				>
 					<Image
-						src={img}
-						alt='My profile pic :)'
-						layout='fill'
-						objectFit='contain'
-						objectPosition='left bottom'
-					/>
-				</div>
-
-				<div
-					className={`${homeStyles['home-pic']} ${homeStyles['lq']} ${homeStyles['project']}`}
-				>
-					<Image
-						src={imgLq}
+						src={apiBase(img.url)}
 						alt='My profile pic :)'
 						layout='fill'
 						objectFit='contain'
@@ -51,6 +55,7 @@ export default function HomeProjectsBlock() {
 						onClick={e => {
 							e.preventDefault();
 							setIndex(index >= 1 ? index - 1 : index);
+							setColor(color.name);
 						}}
 					>
 						<Image
@@ -71,6 +76,7 @@ export default function HomeProjectsBlock() {
 						onClick={e => {
 							e.preventDefault();
 							setIndex(index < projects.length - 1 ? index + 1 : index);
+							setColor(color.name);
 						}}
 					>
 						<div className={styles['img']}>
@@ -93,8 +99,9 @@ export default function HomeProjectsBlock() {
 					<h1 className='title'>{name}</h1>
 					<span>{description}</span>
 					<br />
-					<Button url={url} color={color} isDisable={isDisable}>
-						{isDisable ? 'Soon!' : 'View case'}
+					{/* TODO cambiar por slug */}
+					<Button url={'/' + id} color={color.name} disable={commingSoon}>
+						{commingSoon ? commingSoonText.title : actionText.title}
 					</Button>
 					<div className={styles['project-indicator']}>
 						<span

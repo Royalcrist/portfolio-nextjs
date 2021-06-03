@@ -1,4 +1,4 @@
-import { useState, useContext, useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import styles from '../styles/Home.module.scss';
 
 // Components
@@ -12,14 +12,14 @@ import useIndicator from '../hooks/useIndicator';
 import useScroll from '../hooks/useScroll';
 
 // Providers
-import { ProjectsContext } from '../providers/ProjectsProvider';
+import { ProjectsContext } from '../providers/Provider';
 
 // For Static GraphQL generation
 import client from '../lib/apollo-client';
 import { HOME } from '../queries/queries';
 import HomeSectionBlock from '../components/blocks/HomeSectionBlock';
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
 	const { data } = await client.query({
 		query: HOME,
 	});
@@ -31,10 +31,12 @@ export async function getStaticProps() {
 	};
 }
 
-export default function Home(props) {
-	const { sections } = props;
+export default function Home({ sections }) {
+	const { color, setColor, projectColor } = useContext(ProjectsContext);
+
 	const scroll = useScroll(0);
 	const scrollInfo = useIndicator(scroll.value);
+
 	const linkedin = {
 		id: 1,
 		description: 'LinkedIn',
@@ -53,13 +55,17 @@ export default function Home(props) {
 		else return 'blue';
 	};
 
-	const { index: projectIndex, projects } = useContext(ProjectsContext);
-
-	const [color, setColor] = useState(getSectionColor(sections[0]));
-
 	useEffect(() => {
-		setColor(getSectionColor(sections[scrollInfo.value - 1]));
-	}, [scrollInfo.value, projectIndex, projects]);
+		console.log(
+			sections[scrollInfo.value - 1]['__typename'] ==
+				'ComponentPagesHomeSection',
+		);
+		if (
+			sections[scrollInfo.value - 1]['__typename'] ==
+			'ComponentPagesHomeSection'
+		)
+			setColor(getSectionColor(sections[scrollInfo.value - 1]));
+	}, [scrollInfo.value]);
 
 	return (
 		<>
@@ -81,9 +87,9 @@ export default function Home(props) {
 			<div className={styles.page} onScroll={scroll.onScroll}>
 				{sections.map(section => {
 					if (section['__typename'] == 'ComponentPagesHomeSection') {
-						return <HomeSectionBlock section={section} />;
+						return <HomeSectionBlock key={section.id} section={section} />;
 					} else {
-						return <HomeProjectsBlock />;
+						return <HomeProjectsBlock section={section} />;
 					}
 				})}
 			</div>

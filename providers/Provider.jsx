@@ -1,40 +1,19 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import { useQuery } from '@apollo/client';
-import { HOME } from '../queries/queries';
-import client from '../lib/apollo-client';
+import { PROJECTS_HOME } from '../queries/queries';
 
 export const ProjectsContext = createContext();
 
 export const ProjectsProvider = props => {
-	const [index, setIndex] = useState(0);
-	const [language, setLanguange] = useState('english');
-	const { data, loading, error } = useQuery(HOME);
+	const [language, setLanguange] = useState('en');
+	const [color, setColor] = useState('blue');
 
-	const home = data;
-
-	const projects = [
-		{
-			id: 1,
-			name: 'Cibus',
-			description: "The Point of Sale System that you don't have to learn.",
-			img: '/CibusPic.png',
-			imgLq: '/CibusPicLq.png',
-			url: '/cibus',
-			color: 'orange',
-		},
-		{
-			id: 2,
-			name: 'GoBasket',
-			description:
-				'More than a shop-list app. Organize all your groceries on one tap.',
-			img: '/GobasketPic.png',
-			imgLq: '/GobasketPicLq.png',
-			url: '/gobasket',
-			color: 'red',
-			isDisable: true,
-		},
-	];
-
+	// Projects
+	const {
+		data: projectsData,
+		loading: projectsLoading,
+		error: projectsError,
+	} = useQuery(PROJECTS_HOME);
 	const cases = [
 		{
 			id: 1,
@@ -50,14 +29,17 @@ export const ProjectsProvider = props => {
 	return (
 		<ProjectsContext.Provider
 			value={{
-				projects,
-				index,
-				setIndex,
-				cases,
+				// General
+				color,
+				setColor,
 				language,
 				setLanguange,
-				home,
-				loading,
+
+				// Projects
+				projectsData,
+				projectsLoading,
+				projectsError,
+				cases,
 			}}
 		>
 			{props.children}
