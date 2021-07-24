@@ -48,6 +48,10 @@
 	margin-top: 0.5em;
 }
 
+.lang-btn-header {
+	margin-left: auto;
+}
+
 .menu {
 	position: absolute;
 	top: 30px;
@@ -76,6 +80,10 @@
 
 		&:active img {
 			opacity: 0.8;
+		}
+
+		.lang {
+			margin-left: auto;
 		}
 	}
 
@@ -261,6 +269,11 @@
 
 		&-btn.active::before {
 			display: inline-block;
+		}
+
+		.lang {
+			margin-left: 0;
+			margin-top: auto;
 		}
 	}
 

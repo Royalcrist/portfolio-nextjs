@@ -5,19 +5,11 @@ import styles from '../styles/components/Header.module.scss';
 
 // Components
 import SocialMedia from './SocialMedia';
-// import LanguageButton from './LanguageButton';
+import LanguageButton from './buttons/LanguageButton';
 
 const Header = props => {
-	const {
-		index,
-		showLogo,
-		showNav,
-		hideMenu,
-		hideBg,
-		color,
-		socialMedia,
-	} = props;
-	const { github, linkedin } = socialMedia;
+	const { index, showLogo, showNav, hideMenu, hideBg, color, socialMedias } =
+		props;
 	const [logo, setLogo] = useState(null);
 	const [menu, setMenu] = useState(null);
 	const [isActive, setIsActive] = useState(false);
@@ -41,6 +33,7 @@ const Header = props => {
 		if (!hideMenu) {
 			setMenu(
 				<>
+					{/* TODO Dynamic menu */}
 					<div className={`${styles.menu} ${isActive ? styles.active : ''}`}>
 						<div
 							className={styles['navbar-i-group']}
@@ -89,11 +82,15 @@ const Header = props => {
 							</Link>
 						</div>
 
-						{/* <LanguageButton color={color} /> */}
+						<LanguageButton
+							color={color}
+							classname={styles['lang-btn-header']}
+						/>
 
 						<div className={styles['media-container-nav']}>
-							<SocialMedia media={github} />
-							<SocialMedia media={linkedin} />
+							{socialMedias.map(socialMedia => (
+								<SocialMedia key={socialMedia.id} media={socialMedia} />
+							))}
 						</div>
 					</div>
 
@@ -116,16 +113,7 @@ const Header = props => {
 		} else {
 			setMenu(null);
 		}
-	}, [
-		hideMenu,
-		index,
-		isActive,
-		color,
-		socialMedia,
-		showNav,
-		github,
-		linkedin,
-	]);
+	}, [hideMenu, index, isActive, color, socialMedias, showNav]);
 
 	return (
 		// <nav className={`navbar ${isActive ? 'active' : ''}`}>

@@ -1,17 +1,14 @@
 import React from 'react';
 import Image from 'next/image';
 import styles from '../styles/components/SocialMedia.module.scss';
+import { apiBase } from '../helpers/helpers';
 
-const SocialMedia = props => {
-	const { media } = props;
+const SocialMedia = ({ media }) => {
+	const { name, url, icon } = media;
+
 	return (
-		<a
-			href={media.url}
-			className={styles.media}
-			target='_blank'
-			rel='noreferrer'
-		>
-			<Image src={media.logo} alt={media.description} layout='fill' />
+		<a href={url} className={styles.media} target='_blank' rel='noreferrer'>
+			<Image src={apiBase(icon.url)} alt={name} layout='fill' />
 		</a>
 	);
 };

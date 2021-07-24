@@ -1,0 +1,9 @@
+.paragraph-component {
+	margin: 2em 0 4em;
+
+	&__img {
+		img {
+			border-radius: 1rem;
+		}
+	}
+}

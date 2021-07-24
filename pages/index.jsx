@@ -5,7 +5,7 @@ import styles from '../styles/Home.module.scss';
 import Header from '../components/Header';
 import SocialMedia from '../components/SocialMedia';
 import Indicator from '../components/Indicator';
-import HomeProjectsBlock from '../components/blocks/HomeProjectsBlock';
+import BlocksBuilder from '../components/builders/BlocksBuilder';
 
 // Hooks
 import useIndicator from '../hooks/useIndicator';
@@ -16,39 +16,15 @@ import { ProjectsContext } from '../providers/Provider';
 
 // For Static GraphQL generation
 import client from '../lib/apollo-client';
-import { HOME } from '../queries/queries';
-import HomeSectionBlock from '../components/blocks/HomeSectionBlock';
+import queries from '../queries/queries';
 
-export async function getServerSideProps() {
-	const { data } = await client.query({
-		query: HOME,
-	});
-
-	return {
-		props: {
-			...data.home,
-		},
-	};
-}
-
-export default function Home({ sections }) {
-	const { color, setColor, projectColor } = useContext(ProjectsContext);
+export default function Home({ sections, socialMedias }) {
+	const { color, setColor, projectsData } = useContext(ProjectsContext);
 
 	const scroll = useScroll(0);
 	const scrollInfo = useIndicator(scroll.value);
 
-	const linkedin = {
-		id: 1,
-		description: 'LinkedIn',
-		url: 'https://www.linkedin.com/in/hicrist/',
-		logo: '/linkedin.svg',
-	};
-	const github = {
-		id: 2,
-		description: 'Github',
-		url: 'https://github.com/Royalcrist',
-		logo: '/github.svg',
-	};
+	const projects = projectsData ? projectsData.projects : null;
 
 	const getSectionColor = section => {
 		if (section.color) return section.color.name;
@@ -56,15 +32,19 @@ export default function Home({ sections }) {
 	};
 
 	useEffect(() => {
-		console.log(
-			sections[scrollInfo.value - 1]['__typename'] ==
-				'ComponentPagesHomeSection',
-		);
-		if (
-			sections[scrollInfo.value - 1]['__typename'] ==
-			'ComponentPagesHomeSection'
-		)
-			setColor(getSectionColor(sections[scrollInfo.value - 1]));
+		const sectionsTypeDispatch = {
+			ComponentPagesHomeSection: () =>
+				setColor(getSectionColor(sections[scrollInfo.value - 1])),
+
+			ComponentPagesHomeProjectSection: () => {
+				if (projects) setColor(projects[0].color.name);
+			},
+		};
+
+		const currentSection = sections[scrollInfo.value - 1];
+
+		// Dispatch the color setter depending on the section type
+		sectionsTypeDispatch[currentSection['__typename']]();
 	}, [scrollInfo.value]);
 
 	return (
@@ -74,25 +54,37 @@ export default function Home({ sections }) {
 				showLogo
 				showNav
 				color={color}
-				socialMedia={{ github, linkedin }}
+				socialMedias={socialMedias}
 			/>
 
 			<div className={styles['media-container']}>
-				<SocialMedia media={linkedin} />
-				<SocialMedia media={github} />
+				{socialMedias.map(socialMedia => (
+					<SocialMedia key={socialMedia.id} media={socialMedia} />
+				))}
 			</div>
 
 			<Indicator index={scrollInfo.value} previousIndex={scrollInfo.prev} />
 
-			<div className={styles.page} onScroll={scroll.onScroll}>
-				{sections.map(section => {
-					if (section['__typename'] == 'ComponentPagesHomeSection') {
-						return <HomeSectionBlock key={section.id} section={section} />;
-					} else {
-						return <HomeProjectsBlock section={section} />;
-					}
-				})}
+			<div className='page' onScroll={scroll.onScroll}>
+				<BlocksBuilder sections={sections} />
 			</div>
 		</>
 	);
+}
+
+export async function getServerSideProps({ locale }) {
+	const { data } = await client.query({
+		query: queries('HOME', locale),
+	});
+
+	const { data: socialData } = await client.query({
+		query: queries('SOCIAL_MEDIA', locale),
+	});
+
+	return {
+		props: {
+			...data.home,
+			socialMedias: socialData.socialMedias,
+		},
+	};
 }

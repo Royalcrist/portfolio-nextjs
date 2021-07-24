@@ -3,7 +3,7 @@ import Image from 'next/image';
 import styles from '../styles/components/FeaturedProjects.module.scss';
 
 // Components
-import Button from './Button';
+import Button from './buttons/Button';
 
 // Providers
 import { ProjectsContext } from '../providers/Provider.jsx';

@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from '../Button.jsx';
+import Button from '../buttons/Button.jsx';
 import Image from 'next/image';
 import styles from '../../styles/Home.module.scss';
 import { apiBase } from '../../helpers/helpers';
@@ -14,10 +14,11 @@ export default function HomeSectionBlock({ section }) {
 		image,
 		color,
 		contactLinks,
+		linkId,
 	} = section;
 
 	return (
-		<section id='me' className={`grid-column ${styles.container}`}>
+		<section id={linkId} className={`grid-column container`}>
 			<div className={styles['img-container']}>
 				{image ? (
 					<div className={styles['home-pic']}>

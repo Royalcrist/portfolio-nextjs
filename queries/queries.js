@@ -1,12 +1,15 @@
 import { gql } from '@apollo/client';
 
-export const HOME = gql`
+export default function queries(dispatcher, locale = 'en') {
+	const queriesDispatcher = {
+		HOME: gql`
 	query Home {
-		home(locale: "es") {
+		home(locale: "${locale}") {
 			sections {
 				... on ComponentPagesHomeSection {
 					__typename
 					id
+					linkId: link_id
 					title
 					upperTitle
 					description
@@ -15,6 +18,7 @@ export const HOME = gql`
 						title
 					}
 					image {
+						id
 						name
 						alternativeText
 						width
@@ -24,6 +28,7 @@ export const HOME = gql`
 						previewUrl
 					}
 					color {
+						id
 						name
 					}
 					contactLinks {
@@ -33,6 +38,7 @@ export const HOME = gql`
 						url
 						icon {
 							__typename
+							id
 							name
 							alternativeText
 							width
@@ -50,53 +56,67 @@ export const HOME = gql`
 			}
 		}
 	}
-`;
+`,
 
-export const PROFILE = gql`
-	query Profile {
-		profile(locale: "es") {
-			locale
-			localizations {
-				id
-				locale
-			}
-			description
-			languages {
-				id
-				language
-			}
-			color {
-				name
-			}
-			section {
-				... on ComponentPagesSkills {
-					__typename
+		PROFILE: gql`
+		query Profile {
+			profile(locale: "${locale}") {
+				title
+				subtitle
+				description
+				color {
 					id
 					name
 				}
-				... on ComponentPagesParagraph {
-					__typename
+				images {
 					id
-					paragraph
+					name
+					alternativeText
+					width
+					height
+					formats
+					url
+					previewUrl
 				}
-				... on ComponentPagesTimeline {
-					__typename
-					id
-					title
+				sections {
+					... on ComponentPagesSkills {
+						__typename
+						id
+						name
+					}
+					... on ComponentPagesParagraph {
+						__typename
+						id
+						title
+						paragraph
+						images {
+							id
+							name
+							alternativeText
+							width
+							height
+							formats
+							url
+							previewUrl
+						}
+					}
+					... on ComponentPagesTimeline {
+						__typename
+						id
+						items {
+							id
+							title
+							date
+							description
+						}
+					}
 				}
 			}
 		}
-	}
-`;
-
-export const PROJECTS_HOME = gql`
+`,
+		PROJECTS_HOME: gql`
 	query Projects {
-		projects(locale: "en", sort: "highlight:desc,commingSoon:asc") {
-			locale
-			localizations {
-				id
-				locale
-			}
+		projects(locale: "${locale}", sort: "highlight:desc,commingSoon:asc") {
 			id
 			slug
 			name
@@ -109,10 +129,12 @@ export const PROJECTS_HOME = gql`
 				title
 			}
 			color {
+				id
 				name
 			}
 			highlight
 			homepageImage {
+				id
 				name
 				alternativeText
 				width
@@ -123,16 +145,10 @@ export const PROJECTS_HOME = gql`
 			}
 		}
 	}
-`;
-
-export const PROJECTS = gql`
+`,
+		PROJECTS: gql`
 	query Projects {
-		projects(locale: "en", sort: "highlight:desc,commingSoon:asc") {
-			locale
-			localizations {
-				id
-				locale
-			}
+		projects(locale: "${locale}", sort: "highlight:desc,commingSoon:asc") {
 			id
 			slug
 			name
@@ -147,6 +163,7 @@ export const PROJECTS = gql`
 				title
 			}
 			color {
+				id
 				name
 			}
 			highlight
@@ -160,6 +177,7 @@ export const PROJECTS = gql`
 				previewUrl
 			}
 			images {
+				id
 				name
 				alternativeText
 				width
@@ -170,4 +188,26 @@ export const PROJECTS = gql`
 			}
 		}
 	}
-`;
+`,
+		SOCIAL_MEDIA: gql`
+			query SocialMedia {
+				socialMedias {
+					id
+					name
+					url
+					icon {
+						id
+						name
+						alternativeText
+						width
+						height
+						formats
+						url
+					}
+				}
+			}
+		`,
+	};
+
+	return queriesDispatcher[dispatcher];
+}

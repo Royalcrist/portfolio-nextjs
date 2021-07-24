@@ -1,0 +1,112 @@
+.timeline {
+	display: grid;
+	grid-template-columns: 1fr 1px 1fr;
+	padding: 4em 0;
+
+	&__middle-line {
+		background-color: var(--light-gray);
+		height: 95%;
+		transform: translate(0, -4em);
+	}
+
+	&__left .timeline-item:first-child {
+		margin-top: calc(30% + 2rem);
+	}
+
+	&__right .timeline-item:first-child {
+		margin-top: 0;
+	}
+}
+
+.timeline-item {
+	position: relative;
+	font-size: 0.9rem;
+	margin-top: calc(25% + 2em);
+
+	&.odd {
+		margin-left: 3em;
+	}
+
+	&.even {
+		margin-right: 3em;
+	}
+
+	&__info {
+		border: 1px solid var(--light-gray);
+
+		h6,
+		p {
+			width: 20ch;
+		}
+
+		h6 {
+			text-transform: uppercase;
+			margin-bottom: 0.2em;
+		}
+
+		&__date {
+			margin: 0;
+			font-weight: 600;
+			letter-spacing: 2px;
+		}
+
+		&__description {
+			word-wrap: break-word;
+		}
+	}
+
+	&.odd &__info {
+		padding: 2em 2em 1em 3em;
+		border-radius: 0 1.5em 1.5em 1.5em;
+	}
+
+	&.even &__info {
+		padding: 2em 3em 1em 2em;
+		border-radius: 1.5em 0 1.5em 1.5em;
+	}
+
+	// Triangle
+
+	& &__corner:before,
+	& &__corner:after {
+		content: '';
+		display: block;
+		position: absolute;
+		width: 0;
+		height: 0;
+		border-style: solid;
+		border-width: 1em;
+	}
+
+	// Triangle inner
+
+	& &__corner:before {
+		top: 0px;
+	}
+
+	&.odd &__corner:before {
+		border-color: var(--light-gray) var(--light-gray) transparent transparent;
+		left: calc(-1.85em - 0.125em);
+	}
+
+	&.even &__corner:before {
+		border-color: var(--light-gray) transparent transparent var(--light-gray);
+		right: calc(-1.85em - 0.125em);
+	}
+
+	// Triangle border
+
+	& &__corner:after {
+		top: 0.0625em;
+	}
+
+	&.odd &__corner:after {
+		border-color: var(--background) var(--background) transparent transparent;
+		left: -1.85em;
+	}
+
+	&.even &__corner:after {
+		border-color: var(--background) transparent transparent var(--background);
+		right: -1.85em;
+	}
+}

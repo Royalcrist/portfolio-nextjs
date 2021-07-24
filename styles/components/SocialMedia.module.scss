@@ -4,11 +4,11 @@
 	font-size: var(--p-options-size);
 	display: inline-block;
 	position: relative;
-	height: 4.4em;
-	width: 4.4em;
-	margin-left: 2.4em;
+	height: 3em;
+	width: 3em;
+	margin-left: 0.8em;
 	background-size: cover;
-	border-radius: 1.8em;
+	border-radius: 1.2em;
 	@include skmpsm-style;
 
 	&:first-child {

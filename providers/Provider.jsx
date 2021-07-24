@@ -1,19 +1,20 @@
 import React, { createContext, useEffect, useState } from 'react';
 import { useQuery } from '@apollo/client';
-import { PROJECTS_HOME } from '../queries/queries';
+import queries from '../queries/queries';
+import { useRouter } from 'next/router';
 
 export const ProjectsContext = createContext();
 
 export const ProjectsProvider = props => {
-	const [language, setLanguange] = useState('en');
 	const [color, setColor] = useState('blue');
+	const { locale } = useRouter();
 
 	// Projects
 	const {
 		data: projectsData,
 		loading: projectsLoading,
 		error: projectsError,
-	} = useQuery(PROJECTS_HOME);
+	} = useQuery(queries('PROJECTS_HOME', locale));
 	const cases = [
 		{
 			id: 1,
@@ -32,8 +33,6 @@ export const ProjectsProvider = props => {
 				// General
 				color,
 				setColor,
-				language,
-				setLanguange,
 
 				// Projects
 				projectsData,

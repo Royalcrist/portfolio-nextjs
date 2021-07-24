@@ -1,29 +1,28 @@
 import { useState, useContext } from 'react';
 import Image from 'next/image';
-import styles from '../../styles/components/HomeProjects.module.scss';
+import styles from '../../styles/components/blocks/HomeProjectsBlock.module.scss';
 import homeStyles from '../../styles/Home.module.scss';
 
 // Providers
 import { ProjectsContext } from '../../providers/Provider.jsx';
 
 // Components
-import Button from '../Button';
+import Button from '../buttons/Button';
 import { apiBase } from '../../helpers/helpers';
 
 export default function HomeProjectsBlock({ section }) {
 	const { projectsData, projectsLoading, projectsError, setColor } =
 		useContext(ProjectsContext);
+	const [index, setIndex] = useState(0);
 
 	if (projectsLoading) return null;
 
-	const [index, setIndex] = useState(0);
 	const projects = projectsData.projects;
 	const {
 		id,
 		name,
 		description,
 		homepageImage: img,
-		slug,
 		color,
 		actionText,
 		commingSoon,
@@ -31,7 +30,7 @@ export default function HomeProjectsBlock({ section }) {
 	} = projects[index];
 
 	return (
-		<section id='projects' className={`grid-column ${homeStyles['container']}`}>
+		<section id='projects' className={`grid-column container`}>
 			<div
 				className={`${homeStyles['img-container']} ${homeStyles['project']}`}
 			>
@@ -96,7 +95,7 @@ export default function HomeProjectsBlock({ section }) {
 				className={`${homeStyles['info-container']} ${homeStyles['project-container']}`}
 			>
 				<div className={`${homeStyles['info']} ${homeStyles['project-info']}`}>
-					<h1 className='title'>{name}</h1>
+					<h1 className={homeStyles['title']}>{name}</h1>
 					<span>{description}</span>
 					<br />
 					{/* TODO cambiar por slug */}
