@@ -30,12 +30,14 @@
 	--gradient-yellow: linear-gradient(-135deg, #ffbb00, #ff8800);
 	--gradient-red: linear-gradient(-135deg, #ff7167, #ff2810);
 	--light-gray: rgba(50, 50, 50, 0.1);
+	--transparent-orange: rgba(255, 148, 56, 0.5);
 
 	// Shadows
 	--shadow-1: 0 0 6px var(--light-gray);
 
 	// Borders
 	--border-1: 1px solid var(--light-gray);
+	--border-selected-orange: 1px solid var(--transparent-orange);
 }
 
 html {

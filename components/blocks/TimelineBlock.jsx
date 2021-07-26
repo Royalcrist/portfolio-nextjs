@@ -1,7 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
 import styles from '../../styles/components/blocks/TimelineBlock.module.scss';
-
-import { getAbsoluteHeight } from '../../helpers/helpers';
 
 export default function TimelineBlock({ section }) {
 	const sides = {
@@ -17,8 +14,8 @@ export default function TimelineBlock({ section }) {
 					index % 2 != 0 ? styles['even'] : styles['odd']
 				}`}
 			>
-				<div className={styles['timeline-item__circle-indicator']}></div>
 				<div className={styles['timeline-item__corner']}></div>
+				<div className={styles['timeline-item__circle-indicator']}></div>
 				<div className={styles['timeline-item__info']}>
 					<h6 className={styles['timeline-item__info__title']}>{item.title}</h6>
 					<p className={styles['timeline-item__info__date']}>
