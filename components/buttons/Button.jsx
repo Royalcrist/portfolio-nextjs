@@ -1,10 +1,9 @@
 import React from 'react';
+import PropType from 'prop-types';
 import Link from 'next/link';
-import styles from '../../styles/components/Button.module.scss';
+import styles from '../../styles/components/buttons/Button.module.scss';
 
-const Button = props => {
-	const { children, color, size, url, disable } = props;
-
+export default function Button({ children, color, size, url, disable }) {
 	return (
 		<Link href={url}>
 			<div
@@ -16,6 +15,12 @@ const Button = props => {
 			</div>
 		</Link>
 	);
-};
+}
 
-export default Button;
+Button.propTypes = {
+	children: PropType.node.isRequired,
+	url: PropType.string.isRequired,
+	color: PropType.oneOf(['blue', 'yellow', 'orange', 'red']),
+	size: PropType.string,
+	disable: PropType.bool,
+};

@@ -45,6 +45,15 @@
 		}
 	}
 
+	&-yellow {
+		background-image: var(--gradient-yellow);
+
+		&::before {
+			@extend .button-blue;
+			background-image: var(--gradient-yellow);
+		}
+	}
+
 	&-orange {
 		background-image: var(--gradient-orange);
 
