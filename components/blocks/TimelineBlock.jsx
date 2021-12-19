@@ -1,12 +1,12 @@
 import styles from '../../styles/components/blocks/TimelineBlock.module.scss';
 
-export default function TimelineBlock({ section }) {
+export default function TimelineBlock({ items }) {
 	const sides = {
 		left: [],
 		right: [],
 	};
 
-	section.items.forEach((item, index) => {
+	items.forEach((item, index) => {
 		const timelineItem = (
 			<div
 				key={item.id + index}

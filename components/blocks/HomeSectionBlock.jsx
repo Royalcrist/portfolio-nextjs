@@ -4,19 +4,17 @@ import Image from 'next/image';
 import styles from '../../styles/Home.module.scss';
 import { apiBase } from '../../helpers/helpers';
 
-export default function HomeSectionBlock({ section }) {
-	const {
-		title,
-		upperTitle,
-		description,
-		url,
-		actionText,
-		image,
-		color,
-		contactLinks,
-		linkId,
-	} = section;
-
+export default function HomeSectionBlock({
+	title,
+	upperTitle,
+	description,
+	url,
+	actionText,
+	image,
+	color,
+	contactLinks,
+	linkId,
+}) {
 	return (
 		<section id={linkId} className={`grid-column container`}>
 			<div className={styles['img-container']}>
@@ -25,9 +23,9 @@ export default function HomeSectionBlock({ section }) {
 						<Image
 							src={apiBase(image.url)}
 							alt={image.alt}
-							layout='fill'
-							objectFit='contain'
-							objectPosition='left bottom'
+							layout="fill"
+							objectFit="contain"
+							objectPosition="left bottom"
 						/>
 					</div>
 				) : null}
@@ -52,9 +50,9 @@ export default function HomeSectionBlock({ section }) {
 											alt={contactLink.icon.alternativeText}
 											width={contactLink.icon.width}
 											height={contactLink.icon.height}
-											layout='responsive'
-											objectFit='contain'
-											objectPosition='left bottom'
+											layout="responsive"
+											objectFit="contain"
+											objectPosition="left bottom"
 										/>
 									</div>
 									<a className={styles.contact} href={contactLink.url}>

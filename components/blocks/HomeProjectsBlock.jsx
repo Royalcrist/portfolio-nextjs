@@ -10,7 +10,7 @@ import { ProjectsContext } from '../../providers/Provider.jsx';
 import Button from '../buttons/Button';
 import { apiBase } from '../../helpers/helpers';
 
-export default function HomeProjectsBlock({ section }) {
+export default function HomeProjectsBlock() {
 	const { projectsData, projectsLoading, projectsError, setColor } =
 		useContext(ProjectsContext);
 	const [index, setIndex] = useState(0);
@@ -30,7 +30,7 @@ export default function HomeProjectsBlock({ section }) {
 	} = projects[index];
 
 	return (
-		<section id='projects' className={`grid-column container`}>
+		<section id="projects" className={`grid-column container`}>
 			<div
 				className={`${homeStyles['img-container']} ${homeStyles['project']}`}
 			>
@@ -39,10 +39,10 @@ export default function HomeProjectsBlock({ section }) {
 				>
 					<Image
 						src={apiBase(img.url)}
-						alt='My profile pic :)'
-						layout='fill'
-						objectFit='contain'
-						objectPosition='left bottom'
+						alt="My profile pic :)"
+						layout="fill"
+						objectFit="contain"
+						objectPosition="left bottom"
 					/>
 				</div>
 			</div>
@@ -58,11 +58,11 @@ export default function HomeProjectsBlock({ section }) {
 						}}
 					>
 						<Image
-							src='/Navigation.svg'
-							alt='Previous'
-							layout='responsive'
-							width='100%'
-							height='80px'
+							src="/Navigation.svg"
+							alt="Previous"
+							layout="responsive"
+							width="100%"
+							height="80px"
 						/>
 					</button>
 				</div>
@@ -80,11 +80,11 @@ export default function HomeProjectsBlock({ section }) {
 					>
 						<div className={styles['img']}>
 							<Image
-								src='/Navigation.svg'
-								alt='Next'
-								layout='responsive'
-								width='100%'
-								height='80px'
+								src="/Navigation.svg"
+								alt="Next"
+								layout="responsive"
+								width="100%"
+								height="80px"
 							/>
 						</div>
 					</button>

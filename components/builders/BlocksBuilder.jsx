@@ -9,16 +9,16 @@ export default function BlocksBuilder({ sections }) {
 			{sections.map(section => {
 				const sectionElements = {
 					ComponentPagesParagraph: (
-						<ParagraphBlock key={section.id} section={section} />
+						<ParagraphBlock key={section.id} {...section} />
 					),
 					ComponentPagesHomeSection: (
-						<HomeSectionBlock key={section.id} section={section} />
+						<HomeSectionBlock key={section.id} {...section} />
 					),
 					ComponentPagesHomeProjectSection: (
-						<HomeProjectsBlock key={section.id} section={section} />
+						<HomeProjectsBlock key={section.id} {...section} />
 					),
 					ComponentPagesTimeline: (
-						<TimelineBlock key={section.id} section={section} />
+						<TimelineBlock key={section.id} {...section} />
 					),
 					//TODO ComponentPagesSkills
 				};

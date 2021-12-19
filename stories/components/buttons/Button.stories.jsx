@@ -3,9 +3,14 @@ import Button from '../../../components/buttons/Button.jsx';
 
 export default {
 	component: Button,
+	argTypes: {
+		color: {
+			control: { type: 'select' },
+		},
+	},
 };
 
-const Template = args => <Button {...args}>{args.children}</Button>;
+const Template = args => <Button {...args} />;
 
 export const Blue = Template.bind({});
 Blue.args = {
@@ -16,21 +21,18 @@ Blue.args = {
 
 export const Yellow = Template.bind({});
 Yellow.args = {
-	children: 'Hola',
-	url: '#',
+	...Blue.args,
 	color: 'yellow',
 };
 
 export const Orange = Template.bind({});
 Orange.args = {
-	children: 'Hola',
-	url: '#',
+	...Blue.args,
 	color: 'orange',
 };
 
 export const Red = Template.bind({});
 Red.args = {
-	children: 'Hola',
-	url: '#',
+	...Blue.args,
 	color: 'red',
 };

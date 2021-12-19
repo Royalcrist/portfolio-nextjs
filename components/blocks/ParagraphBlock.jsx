@@ -3,9 +3,10 @@ import Image from 'next/image';
 import styles from '../../styles/components/blocks/ParagrahpBlock.module.scss';
 import { apiBase } from '../../helpers/helpers';
 
-export default function ParagraphBlock({ section }) {
-	const { title, paragraph, images } = section;
+import PropType from 'prop-types';
+import { ImageType } from '../../prop-types/GlobalPropTypes';
 
+export default function ParagraphBlock({ title, paragraph, images }) {
 	return (
 		<div className={styles['paragraph-component']}>
 			<h2>{title}</h2>
@@ -19,7 +20,7 @@ export default function ParagraphBlock({ section }) {
 						>
 							<Image
 								src={apiBase(image.url)}
-								layout='responsive'
+								layout="responsive"
 								width={image.width}
 								height={image.height}
 								alt={image.alt}
@@ -30,10 +31,10 @@ export default function ParagraphBlock({ section }) {
 					<div className={styles['paragraph-component__img']}>
 						<Image
 							src={apiBase(images.url)}
-							layout='responsive'
+							layout="responsive"
 							width={images.width}
 							height={images.height}
-							objectFit='cover'
+							objectFit="cover"
 							alt={images.alt}
 						/>
 					</div>
@@ -41,3 +42,9 @@ export default function ParagraphBlock({ section }) {
 		</div>
 	);
 }
+
+ParagraphBlock.propTypes = {
+	title: PropType.string.isRequired,
+	paragraph: PropType.string.isRequired,
+	images: PropType.oneOf([ImageType, PropType.arrayOf(ImageType)]),
+};
