@@ -4,8 +4,15 @@ import Button from '../../../components/buttons/Button.jsx';
 export default {
 	component: Button,
 	argTypes: {
+		children: {
+			name: 'label',
+			control: { type: 'text' },
+		},
 		color: {
 			control: { type: 'select' },
+		},
+		url: {
+			control: false,
 		},
 	},
 };
