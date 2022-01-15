@@ -1,0 +1,19 @@
+.secundary-button {
+	width: var(--button-size-large);
+	height: var(--button-size-large);
+	background-color: var(--secundary-background-light);
+	border-radius: calc(var(--button-size-large) * 0.25);
+	border: var(--border-1);
+	padding: calc(var(--button-size-large) * 0.25);
+	transition: 0.2s ease-in-out;
+
+	&:hover,
+	&:focus {
+		transform: translate(0, -10%);
+		border: var(--border-1-selected);
+	}
+
+	&:active {
+		background-color: var(--gray-400);
+	}
+}

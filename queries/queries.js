@@ -87,18 +87,7 @@ export default function queries(dispatcher, locale = 'en') {
 					... on ComponentPagesParagraph {
 						__typename
 						id
-						title
 						paragraph
-						images {
-							id
-							name
-							alternativeText
-							width
-							height
-							formats
-							url
-							previewUrl
-						}
 					}
 					... on ComponentPagesTimeline {
 						__typename

@@ -18,6 +18,7 @@ import queries from '../queries/queries';
 
 // Helpers
 import { apiBase, displayLocaleName } from '../helpers/helpers';
+import LanguageButton from '../components/buttons/LanguageButton';
 
 const Profile = ({ profile, socialMedias }) => {
 	const scrollInfo = useScroll(0);
@@ -34,12 +35,16 @@ const Profile = ({ profile, socialMedias }) => {
 
 	return (
 		<>
-			<div className={`grid-column page`}>
-				<InfoSidebar info={profile} backUrl='/' socialMedias={socialMedias} />
+			<div className={`grid-column-sidebar page`}>
+				<InfoSidebar info={profile} backUrl="/" socialMedias={socialMedias} />
 
-				<div className={styles['info-sections']}>
-					<BlocksBuilder sections={profile.sections} />
+				<div className={`grid-column-sidebar ${styles['info-container']}`}>
+					<div className={styles['info-sections']}>
+						<BlocksBuilder sections={profile.sections} />
+					</div>
 				</div>
+
+				<LanguageButton classname={styles['languange-button']} />
 			</div>
 		</>
 	);

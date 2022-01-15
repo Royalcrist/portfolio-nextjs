@@ -3,12 +3,24 @@
 .lang {
 	&__container {
 		@include skmpsm-style;
+		// background-color: var(--secundary-background-light);
+		// border: var(--border-1);
 		display: inline-grid;
 		grid-template-columns: auto auto;
 		align-items: center;
-		border-radius: 2.5em;
+		border-radius: 1em;
 		padding: 1em 2em;
 		position: relative;
+		transition: 0.2s ease-in-out;
+
+		&:hover,
+		&:focus {
+			border: var(--border-1-selected);
+		}
+	}
+
+	&.show &__container {
+		border: var(--border-1-selected);
 	}
 
 	.arrow-container {
@@ -53,7 +65,8 @@
 			margin-bottom: 0;
 		}
 
-		&:hover {
+		&:hover,
+		&:focus {
 			color: rgba(0, 0, 0, 0.8);
 		}
 	}
@@ -80,7 +93,7 @@
 // 		bottom: -8%;
 // 		height: 110%;
 // 		width: 110%;
-// 		background-color: var(--background);
+// 		background-color: var(--background-light);
 // 		border-radius: 2.5em;
 // 		z-index: -1;
 // 	}

@@ -1,0 +1,21 @@
+.primary-button {
+	width: var(--button-size-large);
+	height: var(--button-size-large);
+	border-radius: calc(var(--button-size-large) * 0.25);
+	border: var(--border-1);
+	padding: calc(var(--button-size-large) * 0.25);
+	transition: 0.2s ease-in-out;
+
+	&:hover,
+	&:focus {
+		transform: translate(0, -10%);
+	}
+
+	&:active {
+		filter: brightness(1.1);
+	}
+
+	svg path {
+		fill: var(--background-light);
+	}
+}

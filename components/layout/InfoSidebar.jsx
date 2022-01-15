@@ -6,8 +6,22 @@ import styles from '../../styles/components/layout/InfoSidebar.module.scss';
 
 import SocialMedia from '../../components/SocialMedia';
 import { apiBase, displayLocaleName } from '../../helpers/helpers';
+import {
+	GithubButton,
+	LinkedinButton,
+	MailButton,
+	MediumButton,
+	PhoneButton,
+} from '../buttons/SocialMediaButtons';
 
-export default function InfoSidebar({ info, backUrl, socialMedias }) {
+export default function InfoSidebar({
+	info,
+	backUrl,
+	color = {
+		accentColor: '#ffbb00',
+		gradient: 'linear-gradient(-135deg, #ffbb00, #ff8800)',
+	},
+}) {
 	const { locale: currentLocale, locales } = useRouter();
 	const { title, subtitle, description, images } = info;
 
@@ -20,16 +34,16 @@ export default function InfoSidebar({ info, backUrl, socialMedias }) {
 							<Image
 								key={image.id}
 								src={apiBase(image.url)}
-								layout='fill'
-								objectFit='cover'
+								layout="fill"
+								objectFit="cover"
 								alt={image.alt}
 							/>
 						))
 					) : (
 						<Image
 							src={apiBase(images.url)}
-							layout='fill'
-							objectFit='cover'
+							layout="fill"
+							objectFit="cover"
 							alt={images.alt}
 						/>
 					)}
@@ -39,10 +53,10 @@ export default function InfoSidebar({ info, backUrl, socialMedias }) {
 								<div className={styles['back-btn__img']}>
 									<Image
 										src={apiBase('/uploads/back_icon_7631375366.svg')}
-										alt='Back icon'
-										layout='responsive'
-										height='32px'
-										width='32px'
+										alt="Back icon"
+										layout="responsive"
+										height="32px"
+										width="32px"
 									/>
 								</div>
 							</div>
@@ -50,27 +64,59 @@ export default function InfoSidebar({ info, backUrl, socialMedias }) {
 					)}
 				</div>
 				<div className={styles['info']}>
-					<h5 className={styles['title']}>{title}</h5>
-					<p className={`${styles['subtitle']}`}>{subtitle}</p>
-					<p>{description}</p>
-					<h6>Languages</h6>
-					<div className={`${styles['languages']}`}>
-						{locales.map((locale, index) => (
-							<div
-								key={`language__item${locale + index}`}
-								className={styles['language__item']}
-							>
-								{displayLocaleName(currentLocale, locale)}
-							</div>
-						))}
+					<div className={`${styles['info-row']} ${styles['info-title']}`}>
+						<h2 className={styles['title']}>{title}</h2>
+						<p className={`${styles['subtitle']}`}>{subtitle}</p>
+					</div>
+					<div className={`${styles['info-row']} ${styles['bookmarks']}`}>
+						<div className={styles['bookmarks-container']}>
+							<Link href={'#'} passHref>
+								<p className={styles['bookmark-links']}>Tech enthusiast</p>
+							</Link>
+							<Link href={'#'} passHref>
+								<p className={styles['bookmark-links']}>Tech enthusiast</p>
+							</Link>
+							<Link href={'#'} passHref>
+								<p className={styles['bookmark-links']}>Tech enthusiast</p>
+							</Link>
+							<Link href={'#'} passHref>
+								<p className={styles['bookmark-links']}>Tech enthusiast</p>
+							</Link>
+							<Link href={'#'} passHref>
+								<p className={styles['bookmark-links']}>Tech enthusiast</p>
+							</Link>
+							<Link href={'#'} passHref>
+								<p className={styles['bookmark-links']}>Tech enthusiast</p>
+							</Link>
+							<Link href={'#'} passHref>
+								<p className={styles['bookmark-links']}>Tech enthusiast</p>
+							</Link>
+							<Link href={'#'} passHref>
+								<p className={styles['bookmark-links']}>Tech enthusiast</p>
+							</Link>
+							<Link href={'#'} passHref>
+								<p className={styles['bookmark-links']}>Tech enthusiast</p>
+							</Link>
+							<Link href={'#'} passHref>
+								<p className={styles['bookmark-links']}>Tech enthusiast</p>
+							</Link>
+							<Link href={'#'} passHref>
+								<p className={styles['bookmark-links']}>Tech enthusiast</p>
+							</Link>
+						</div>
 					</div>
 					<div className={styles['social-media']}>
-						<h6>Reach me on</h6>
+						<MediumButton />
+						<GithubButton />
+						<LinkedinButton />
+						<MailButton />
+						<PhoneButton color={color} />
+						{/* <h6>Reach me on</h6>
 						<div className={styles['media-container']}>
 							{socialMedias.map(socialMedia => (
 								<SocialMedia key={socialMedia.id} media={socialMedia} />
 							))}
-						</div>
+						</div> */}
 						{/* {socialMedias.map(socialMedia => (
 					<SocialMedia key={socialMedia.id} media={socialMedia} />
 				))} */}

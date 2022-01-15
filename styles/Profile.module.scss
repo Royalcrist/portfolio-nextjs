@@ -1,151 +1,19 @@
-.info-sections {
-	grid-column: 6/11;
-	padding-top: 2rem;
+.info-container {
+	grid-column: 1/-1;
+	grid-row: 1;
+	overflow: auto;
 }
 
-// .details {
-// 	grid-column: 6 / 12;
-// 	overflow-y: scroll;
-// 	margin-top: 12%;
-// 	margin-left: 2em;
-// 	scrollbar-width: none;
+.info-sections {
+	grid-column: 4/7;
+	padding-top: 2rem;
+	max-width: 60ch;
+	justify-self: center;
+}
 
-// 	& h1 {
-// 		margin: 0.5em 0 0.4em;
-// 	}
-
-// 	h2 {
-// 		display: block;
-// 		margin: 5em 0 1.7em;
-// 	}
-
-// 	& > span {
-// 		color: var(--text-secundary);
-// 	}
-// 	a {
-// 		display: inline-block;
-// 	}
-// }
-
-// .personal-details {
-// 	font-size: 1.5em;
-// 	color: var(--text-secundary);
-// 	letter-spacing: 2px;
-// }
-
-// .profile-container {
-// 	grid-column: 1 / 5;
-// 	position: relative;
-// 	z-index: 3;
-// }
-
-// .profile-pic {
-// 	width: 100%;
-// 	position: absolute;
-// 	bottom: 0;
-// }
-
-// //Portrait Tablets
-
-// @media screen and (max-width: 1024px) and (orientation: portrait) {
-// 	.details {
-// 		grid-column: 2 / 10;
-// 		margin-top: 3%;
-// 		margin-left: 0;
-// 		overflow: visible;
-
-// 		& h1 {
-// 			font-size: var(--subtitle-size);
-// 		}
-// 	}
-
-// 	.profile-container {
-// 		grid-column: 1 / 7;
-// 		height: 56vh;
-// 		height: calc(var(--vh, 1vh) * 60);
-// 		z-index: 1;
-
-// 		&::after {
-// 			content: '';
-// 			width: 100%;
-// 			height: 20px;
-// 			background: linear-gradient(
-// 				rgba(255, 255, 255, 0),
-// 				rgba(255, 255, 255, 0.3),
-// 				rgba(255, 255, 255, 0.7),
-// 				rgba(255, 255, 255, 1),
-// 				rgba(255, 255, 255, 1)
-// 			);
-// 			display: inline-block;
-// 			position: absolute;
-// 			left: 0;
-// 			bottom: -4px;
-// 			z-index: 1;
-// 		}
-// 	}
-
-// 	.profile-pic {
-// 		width: 80%;
-// 	}
-// }
-
-// //Portrait Phones
-
-// @media screen and (max-width: 570px) and (orientation: portrait) {
-// 	.details {
-// 		grid-column: 2 / 6;
-// 		margin-top: 3%;
-// 		margin-left: 0;
-// 		overflow: visible;
-
-// 		& h1 {
-// 			font-size: var(--subtitle-size);
-// 		}
-// 	}
-
-// 	.profile-container {
-// 		grid-column: 1 / 5;
-// 		height: 56vh;
-// 		height: calc(var(--vh, 1vh) * 56);
-// 		z-index: 1;
-
-// 		&::after {
-// 			content: '';
-// 			width: 100%;
-// 			height: 20px;
-// 			background: linear-gradient(
-// 				rgba(255, 255, 255, 0),
-// 				rgba(255, 255, 255, 0.3),
-// 				rgba(255, 255, 255, 0.7),
-// 				rgba(255, 255, 255, 1),
-// 				rgba(255, 255, 255, 1)
-// 			);
-// 			display: inline-block;
-// 			position: absolute;
-// 			left: 0;
-// 			bottom: -4px;
-// 			z-index: 1;
-// 		}
-// 	}
-
-// 	.profile-pic {
-// 		width: 80%;
-// 	}
-// }
-
-// @media screen and (max-width: 340px) and (orientation: portrait) {
-// 	.profile-container {
-// 		height: 58vh;
-// 		height: calc(var(--vh, 1vh) * 58);
-// 	}
-
-// 	.profile-pic {
-// 		width: 75%;
-// 	}
-// }
-
-// @media screen and (max-width: 340px) and (min-height: 530px) and (orientation: portrait) {
-// 	.profile-pic {
-// 		width: 80%;
-// 	}
-// }
+.languange-button {
+	grid-column: 7;
+	grid-row: 1;
+	margin-top: var(--top-margin);
+	justify-self: end;
+}

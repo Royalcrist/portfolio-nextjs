@@ -1,14 +1,13 @@
-import React, { useEffect, useContext } from 'react';
+import React from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import { ProjectsContext } from '../../providers/Provider.jsx';
 import LangArrow from '../icons/LangArrow';
 import useStatus from '../../hooks/useStatus';
 import { displayLocaleName } from '../../helpers/helpers';
 
 import style from '../../styles/components/buttons/LanguageButton.module.scss';
 
-export default function LanguageButton({ classname = '' }) {
+export default function LanguageButton({ classname = '', ...props }) {
 	const { status, handleStatus } = useStatus();
 	const {
 		locale: currentLocale,
@@ -29,12 +28,11 @@ export default function LanguageButton({ classname = '' }) {
 		null,
 	);
 
-	// return <Link href={}>Change language</Link>
-
 	return (
 		<div
 			className={`${style['lang']} ${style[status]} ${classname}`}
 			onClick={handleStatus}
+			{...props}
 		>
 			<div className={`${style['lang__container']}`}>
 				<div className={`${style['items']}`}>

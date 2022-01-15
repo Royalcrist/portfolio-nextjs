@@ -17,7 +17,7 @@
 	left: 0;
 	height: 6em;
 	width: 100%;
-	background-color: var(--background);
+	background-color: var(--background-light);
 	z-index: -1;
 }
 
@@ -256,7 +256,7 @@
 		right: 100%;
 		width: 60%;
 		height: 100%;
-		background-color: var(--background);
+		background-color: var(--background-light);
 		box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 
 		&.active {
