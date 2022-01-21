@@ -2,8 +2,11 @@ import ParagraphBlock from '../blocks/ParagraphBlock';
 import HomeSectionBlock from '../blocks/HomeSectionBlock';
 import HomeProjectsBlock from '../blocks/HomeProjectsBlock';
 import TimelineBlock from '../blocks/TimelineBlock';
+import SkillsBlock from '../blocks/SkillsBlock';
 
-export default function BlocksBuilder({ sections }) {
+export default function BlocksBuilder({ info }) {
+	const { sections, skillCategories } = info;
+
 	return (
 		<>
 			{sections.map(section => {
@@ -17,10 +20,18 @@ export default function BlocksBuilder({ sections }) {
 					ComponentPagesHomeProjectSection: (
 						<HomeProjectsBlock key={section.id} {...section} />
 					),
-					ComponentPagesTimeline: (
-						<TimelineBlock key={section.id} {...section} />
-					),
+					// TODO Apply the new design
+					// ComponentPagesTimeline: (
+					// 	<TimelineBlock key={section.id} {...section} />
+					// ),
 					//TODO ComponentPagesSkills
+					ComponentPagesSkills: (
+						<SkillsBlock
+							key={section.id}
+							skillCategories={skillCategories}
+							{...section}
+						/>
+					),
 				};
 
 				return sectionElements[section['__typename']];

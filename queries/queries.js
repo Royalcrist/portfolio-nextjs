@@ -1,5 +1,11 @@
 import { gql } from '@apollo/client';
 
+/**
+ * Get GraphQL queries for Apollo
+ * @param {('HOME'|'PROFILE'|'PROJECTS'|'PROJECTS_HOME'|'SOCIAL_MEDIA'|'SKILLS')} dispatcher
+ * @param {String} locale
+ * @returns
+ */
 export default function queries(dispatcher, locale = 'en') {
 	const queriesDispatcher = {
 		HOME: gql`
@@ -82,7 +88,7 @@ export default function queries(dispatcher, locale = 'en') {
 					... on ComponentPagesSkills {
 						__typename
 						id
-						name
+						title
 					}
 					... on ComponentPagesParagraph {
 						__typename
@@ -195,6 +201,29 @@ export default function queries(dispatcher, locale = 'en') {
 					}
 				}
 			}
+		`,
+
+		SKILLS: gql`
+		query Skills {
+			skillCategories(locale: "${locale}", sort: "order:desc") {
+				id
+				title
+				skills {
+					id
+					title
+					icon {
+						id
+						name
+						alternativeText
+						width
+						height
+						formats
+						url
+						previewUrl
+					}
+				}
+			}
+		}
 		`,
 	};
 

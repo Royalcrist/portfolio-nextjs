@@ -1,19 +1,1 @@
-.info-container {
-	grid-column: 1/-1;
-	grid-row: 1;
-	overflow: auto;
-}
 
-.info-sections {
-	grid-column: 4/7;
-	padding-top: 2rem;
-	max-width: 60ch;
-	justify-self: center;
-}
-
-.languange-button {
-	grid-column: 7;
-	grid-row: 1;
-	margin-top: var(--top-margin);
-	justify-self: end;
-}
