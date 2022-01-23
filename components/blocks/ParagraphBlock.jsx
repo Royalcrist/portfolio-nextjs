@@ -5,9 +5,17 @@ import Markdown from 'markdown-to-jsx';
 
 import PropType from 'prop-types';
 
-export default function ParagraphBlock({ paragraph }) {
+export default function ParagraphBlock({ paragraph, ...props }) {
+	const Wrapper = ({ children }) => {
+		return (
+			<div className={styles['paragraph-component']} {...props}>
+				{children}
+			</div>
+		);
+	};
+
 	const paragraphOptions = {
-		wrapper: wrapper,
+		wrapper: Wrapper,
 		forceWrapper: true,
 		createElement: (type, props, children) => {
 			if (props.src) props.src = apiBase(props.src);
@@ -16,10 +24,6 @@ export default function ParagraphBlock({ paragraph }) {
 	};
 
 	return <Markdown options={paragraphOptions}>{paragraph}</Markdown>;
-}
-
-function wrapper(props) {
-	return <div className={styles['paragraph-component']}>{props.children}</div>;
 }
 
 ParagraphBlock.propTypes = {

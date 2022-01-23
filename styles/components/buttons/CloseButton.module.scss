@@ -1,0 +1,21 @@
+.close-button {
+	width: 5em;
+	height: 5em;
+	background-color: transparent;
+	border: none;
+
+	svg {
+		width: 100%;
+		height: 100%;
+
+		path {
+			fill: var(--gray-400);
+			transition: 0.2s ease-in-out;
+		}
+	}
+
+	&:hover svg path,
+	&:focus svg path {
+		fill: var(--text-primary);
+	}
+}

@@ -65,8 +65,8 @@ export default function Home({ sections, socialMedias }) {
 
 			<Indicator index={scrollInfo.value} previousIndex={scrollInfo.prev} />
 
-			<div className='page' onScroll={scroll.onScroll}>
-				<BlocksBuilder sections={sections} />
+			<div className="page" onScroll={scroll.onScroll}>
+				<BlocksBuilder info={{ sections }} />
 			</div>
 		</>
 	);

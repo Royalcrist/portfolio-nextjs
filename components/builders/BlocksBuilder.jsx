@@ -12,13 +12,13 @@ export default function BlocksBuilder({ info }) {
 			{sections.map(section => {
 				const sectionElements = {
 					ComponentPagesParagraph: (
-						<ParagraphBlock key={section.id} {...section} />
+						<ParagraphBlock id={section.id} key={section.id} {...section} />
 					),
 					ComponentPagesHomeSection: (
-						<HomeSectionBlock key={section.id} {...section} />
+						<HomeSectionBlock id={section.id} key={section.id} {...section} />
 					),
 					ComponentPagesHomeProjectSection: (
-						<HomeProjectsBlock key={section.id} {...section} />
+						<HomeProjectsBlock id={section.id} key={section.id} {...section} />
 					),
 					// TODO Apply the new design
 					// ComponentPagesTimeline: (
@@ -27,6 +27,7 @@ export default function BlocksBuilder({ info }) {
 					//TODO ComponentPagesSkills
 					ComponentPagesSkills: (
 						<SkillsBlock
+							id={section.id}
 							key={section.id}
 							skillCategories={skillCategories}
 							{...section}

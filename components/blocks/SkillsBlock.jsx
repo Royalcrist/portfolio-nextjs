@@ -1,44 +1,70 @@
 import Image from 'next/dist/client/image';
+import { useEffect, useState } from 'react';
 import { apiBase } from '../../helpers/helpers';
 import styles from '../../styles/components/blocks/SkillsBlock.module.scss';
+import Modal from '../modals/Modal';
 
-export default function SkillsBlock({ title, skillCategories }) {
+export default function SkillsBlock({ title, skillCategories, ...props }) {
 	return (
-		<div className={styles['skills-block']}>
+		<div className={styles['skills-block']} {...props}>
 			<h2>{title}</h2>
 			{skillCategories.map(skillCategory => (
-				<SkillCategory
-					key={skillCategory.id}
-					skillCategory={skillCategory}
-					onClick={() => console.log('clicked')}
-				/>
+				<SkillCategory key={skillCategory.id} skillCategory={skillCategory} />
 			))}
 		</div>
 	);
 }
 
 function SkillCategory({ skillCategory, onClick }) {
+	const [showModal, setShowModal] = useState(false);
 	const { title, skills } = skillCategory;
 	const skillsElems = [];
+	const allSkillsElems = [];
 	const moreSkills = [];
 
 	for (let index = 0; index < skills.length; index++) {
+		const elem = <Skill key={skills[index].id} skill={skills[index]} />;
+
 		if (index < 4) {
-			skillsElems.push(<Skill key={skills[index].id} skill={skills[index]} />);
+			skillsElems.push(elem);
 		}
 
 		if (index >= 4 && index < 7) {
 			moreSkills.push(skills[index]);
 		}
+
+		allSkillsElems.push(elem);
 	}
 
-	return (
-		<div className={styles['skills-category']} onClick={onClick}>
-			<h4>{title}</h4>
-			{skillsElems}
-			{moreSkills.length > 0 && <MoreSkills skills={moreSkills} />}
-		</div>
-	);
+	const handleClick = e => {
+		e.stopPropagation();
+		if (onClick) {
+			onClick();
+		}
+
+		setShowModal(true);
+	};
+
+	if (skills.length > 0) {
+		return (
+			<>
+				<Modal
+					show={showModal}
+					onClose={() => setShowModal(false)}
+					title={title}
+				>
+					{allSkillsElems}
+				</Modal>
+				<div className={styles['skills-category']} onClick={handleClick}>
+					<h4>{title}</h4>
+					{skillsElems}
+					{moreSkills.length > 0 && <MoreSkills skills={moreSkills} />}
+				</div>
+			</>
+		);
+	}
+
+	return null;
 }
 
 function Skill({ skill }) {

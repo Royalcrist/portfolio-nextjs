@@ -23,7 +23,7 @@ export default function InfoSidebar({
 	},
 }) {
 	const { locale: currentLocale, locales } = useRouter();
-	const { title, subtitle, description, images } = info;
+	const { title, subtitle, images, sections } = info;
 
 	return (
 		<div className={styles['info-sidebar-container']}>
@@ -70,39 +70,15 @@ export default function InfoSidebar({
 					</div>
 					<div className={`${styles['info-row']} ${styles['bookmarks']}`}>
 						<div className={styles['bookmarks-container']}>
-							<Link href={'#'} passHref>
-								<p className={styles['bookmark-links']}>Tech enthusiast</p>
-							</Link>
-							<Link href={'#'} passHref>
-								<p className={styles['bookmark-links']}>Tech enthusiast</p>
-							</Link>
-							<Link href={'#'} passHref>
-								<p className={styles['bookmark-links']}>Tech enthusiast</p>
-							</Link>
-							<Link href={'#'} passHref>
-								<p className={styles['bookmark-links']}>Tech enthusiast</p>
-							</Link>
-							<Link href={'#'} passHref>
-								<p className={styles['bookmark-links']}>Tech enthusiast</p>
-							</Link>
-							<Link href={'#'} passHref>
-								<p className={styles['bookmark-links']}>Tech enthusiast</p>
-							</Link>
-							<Link href={'#'} passHref>
-								<p className={styles['bookmark-links']}>Tech enthusiast</p>
-							</Link>
-							<Link href={'#'} passHref>
-								<p className={styles['bookmark-links']}>Tech enthusiast</p>
-							</Link>
-							<Link href={'#'} passHref>
-								<p className={styles['bookmark-links']}>Tech enthusiast</p>
-							</Link>
-							<Link href={'#'} passHref>
-								<p className={styles['bookmark-links']}>Tech enthusiast</p>
-							</Link>
-							<Link href={'#'} passHref>
-								<p className={styles['bookmark-links']}>Tech enthusiast</p>
-							</Link>
+							{sections &&
+								sections.map(section => (
+									<a
+										href={`#${section.id}`}
+										className={styles['bookmark-link']}
+									>
+										Tech enthusiast
+									</a>
+								))}
 						</div>
 					</div>
 					<div className={styles['social-media']}>
