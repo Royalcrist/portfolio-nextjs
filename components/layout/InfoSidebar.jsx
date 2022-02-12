@@ -3,14 +3,11 @@ import { useRouter } from 'next/router';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from '../../styles/components/layout/InfoSidebar.module.scss';
-
-import SocialMedia from '../../components/SocialMedia';
-import { apiBase, displayLocaleName } from '../../helpers/helpers';
+import { apiBase } from '../../helpers/helpers';
 import {
 	GithubButton,
 	LinkedinButton,
 	MailButton,
-	MediumButton,
 	PhoneButton,
 } from '../buttons/SocialMediaButtons';
 import { ProviderContext } from '../../providers/Provider';
@@ -25,17 +22,29 @@ export default function InfoSidebar({
 }) {
 	const { locale: currentLocale } = useRouter();
 	const { title, subtitle, images } = info;
-	const { blockBuilderState } = useContext(ProviderContext);
+	const { blockBuilderState, blockBuilderDispatch } =
+		useContext(ProviderContext);
 
 	const [bookmarks, setBookmarks] = useState([]);
 
 	useEffect(() => {
+		setBookmarks([]);
+	}, [currentLocale]);
+
+	useEffect(() => {
 		setBookmarks(
-			blockBuilderState.links.map(link => (
-				<a href={`#${link.selector}`} className={styles['bookmark-link']}>
-					{link.title}
-				</a>
-			)),
+			Object.keys(blockBuilderState.links).map(linkId => {
+				const link = blockBuilderState.links[linkId];
+				return (
+					<a
+						key={linkId + '-bookmarks'}
+						href={`#${link.selector}`}
+						className={styles['bookmark-link']}
+					>
+						{link.title}
+					</a>
+				);
+			}),
 		);
 	}, [blockBuilderState]);
 

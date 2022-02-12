@@ -1,7 +1,7 @@
 import { useReducer } from 'react';
 
 const initialState = {
-	links: [],
+	links: {},
 };
 
 export default function useBlockBuilderLinks() {
@@ -13,7 +13,10 @@ export default function useBlockBuilderLinks() {
 function reducer(state, action) {
 	switch (action.type) {
 		case 'ADD':
-			return { ...state, links: [...state.links, action.payload] };
+			return {
+				...state,
+				links: { ...state.links, [action.payload.id]: action.payload },
+			};
 		case 'RESET':
 			return { ...initialState };
 		default:

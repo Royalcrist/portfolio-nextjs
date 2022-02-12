@@ -3,9 +3,14 @@ import HomeSectionBlock from '../blocks/HomeSectionBlock';
 import HomeProjectsBlock from '../blocks/HomeProjectsBlock';
 import TimelineBlock from '../blocks/TimelineBlock';
 import SkillsBlock from '../blocks/SkillsBlock';
+import { useRouter } from 'next/router';
+import { useContext, useEffect } from 'react';
+import { ProviderContext } from '../../providers/Provider';
 
 export default function BlocksBuilder({ info }) {
 	const { sections, skillCategories } = info;
+	const { blockBuilderDispatch } = useContext(ProviderContext);
+	const { locale } = useRouter();
 
 	return (
 		<>

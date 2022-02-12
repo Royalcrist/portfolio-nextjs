@@ -52,6 +52,7 @@ export default function ParagraphBlock({
 		blockBuilderDispatch({
 			type: 'ADD',
 			payload: {
+				id,
 				selector: blockId,
 				title: titleElem.current.innerHTML.trim(),
 			},

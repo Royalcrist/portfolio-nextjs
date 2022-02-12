@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from 'react';
+import React, { createContext, useEffect, useRef, useState } from 'react';
 import { useQuery } from '@apollo/client';
 import queries from '../queries/queries';
 import { useRouter } from 'next/router';
@@ -26,6 +26,7 @@ export const Provider = props => {
 				// General
 				color,
 				setColor,
+				locale,
 
 				// Projects
 				projectsData,

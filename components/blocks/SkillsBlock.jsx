@@ -12,13 +12,14 @@ export default function SkillsBlock({
 	skillCategories,
 	...props
 }) {
-	const { blockBuilderDispatch } = useContext(ProviderContext);
+	const { blockBuilderDispatch, locale } = useContext(ProviderContext);
 	const blockId = __typename + id;
 
 	useEffect(() => {
 		blockBuilderDispatch({
 			type: 'ADD',
 			payload: {
+				id,
 				selector: blockId,
 				title,
 			},
@@ -45,7 +46,7 @@ function SkillCategory({ skillCategory, onClick }) {
 	const moreSkills = [];
 
 	for (let index = 0; index < skills.length; index++) {
-		const elem = <Skill key={skills[index].id} skill={skills[index]} />;
+		let elem = <Skill key={skills[index].id} skill={skills[index]} />;
 
 		if (index < 4) {
 			skillsElems.push(elem);
@@ -55,6 +56,7 @@ function SkillCategory({ skillCategory, onClick }) {
 			moreSkills.push(skills[index]);
 		}
 
+		elem = <Skill key={skills[index].id + 'all'} skill={skills[index]} />;
 		allSkillsElems.push(elem);
 	}
 
@@ -111,7 +113,7 @@ function MoreSkills({ skills }) {
 				{skills.map(skill => (
 					<div
 						className={styles['more-skills-images__img']}
-						key={skill.icon.id}
+						key={skill.id + '-more-skills'}
 					>
 						<Image
 							src={apiBase(skill.icon.url)}
