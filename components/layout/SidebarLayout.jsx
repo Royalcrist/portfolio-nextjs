@@ -7,10 +7,12 @@ import LanguageButton from '../buttons/LanguageButton';
 export default function SidebarLayout({ info }) {
 	return (
 		<>
-			<div className={`grid-column-sidebar page`}>
+			<div className={`${styles['grid-column-sidebar']} page`}>
 				<InfoSidebar info={info} backUrl="/" />
 
-				<div className={`grid-column-sidebar ${styles['info-container']}`}>
+				<div
+					className={`${styles['grid-column-sidebar']} ${styles['info-container']}`}
+				>
 					<div className={styles['info-sections']}>
 						<BlocksBuilder info={info} />
 					</div>

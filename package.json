@@ -10,7 +10,7 @@
 		"build-storybook": "build-storybook"
 	},
 	"dependencies": {
-		"@apollo/client": "^3.5.6",
+		"@apollo/client": "^3.5.8",
 		"graphql": "^15.8.0",
 		"markdown-to-jsx": "^7.1.5",
 		"next": "10.0.7",
@@ -19,16 +19,16 @@
 		"react-dom": "17.0.1"
 	},
 	"devDependencies": {
-		"@babel/core": "^7.16.5",
-		"@storybook/addon-actions": "^6.4.9",
-		"@storybook/addon-essentials": "^6.4.9",
-		"@storybook/addon-links": "^6.4.9",
-		"@storybook/builder-webpack5": "^6.4.9",
-		"@storybook/manager-webpack5": "^6.4.9",
+		"@babel/core": "^7.17.2",
+		"@storybook/addon-actions": "^6.4.19",
+		"@storybook/addon-essentials": "^6.4.19",
+		"@storybook/addon-links": "^6.4.19",
+		"@storybook/builder-webpack5": "^6.4.19",
+		"@storybook/manager-webpack5": "^6.4.19",
 		"@storybook/preset-scss": "^1.0.3",
-		"@storybook/react": "^6.4.9",
+		"@storybook/react": "^6.4.19",
 		"babel-loader": "^8.2.3",
-		"css-loader": "^6.5.1",
+		"css-loader": "^6.6.0",
 		"eslint": "^7.32.0",
 		"eslint-config-airbnb": "^18.2.1",
 		"eslint-config-prettier": "^8.3.0",
@@ -36,7 +36,7 @@
 		"eslint-plugin-jsx-a11y": "^6.5.1",
 		"eslint-plugin-react": "^7.27.1",
 		"eslint-plugin-react-hooks": "^4.3.0",
-		"sass": "^1.45.0",
+		"sass": "^1.49.7",
 		"sass-loader": "^12.4.0",
 		"style-loader": "^3.3.1"
 	}

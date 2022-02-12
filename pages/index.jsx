@@ -12,14 +12,14 @@ import useIndicator from '../hooks/useIndicator';
 import useScroll from '../hooks/useScroll';
 
 // Providers
-import { ProjectsContext } from '../providers/Provider';
+import { ProviderContext } from '../providers/Provider';
 
 // For Static GraphQL generation
 import client from '../lib/apollo-client';
 import queries from '../queries/queries';
 
 export default function Home({ sections, socialMedias }) {
-	const { color, setColor, projectsData } = useContext(ProjectsContext);
+	const { color, setColor, projectsData } = useContext(ProviderContext);
 
 	const scroll = useScroll(0);
 	const scrollInfo = useIndicator(scroll.value);

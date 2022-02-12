@@ -145,23 +145,6 @@ button {
 	grid-gap: 0 0.7%;
 }
 
-.grid-column-sidebar {
-	display: grid;
-	grid-template-columns: var(--horizontal-margin) 36ch 0.5fr repeat(4, 1fr) var(
-			--horizontal-margin
-		);
-	grid-gap: 16px;
-	scroll-behavior: smooth;
-}
-
-.grid-column-new {
-	display: grid;
-	grid-template-columns: var(--horizontal-margin) repeat(12, 1fr) var(
-			--horizontal-margin
-		);
-	grid-gap: 16px;
-}
-
 .blue {
 	background-image: var(--gradient-blue);
 

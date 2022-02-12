@@ -1,16 +1,38 @@
 import Image from 'next/dist/client/image';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { apiBase } from '../../helpers/helpers';
+import { ProviderContext } from '../../providers/Provider';
 import styles from '../../styles/components/blocks/SkillsBlock.module.scss';
 import Modal from '../modals/Modal';
 
-export default function SkillsBlock({ title, skillCategories, ...props }) {
+export default function SkillsBlock({
+	__typename,
+	id,
+	title,
+	skillCategories,
+	...props
+}) {
+	const { blockBuilderDispatch } = useContext(ProviderContext);
+	const blockId = __typename + id;
+
+	useEffect(() => {
+		blockBuilderDispatch({
+			type: 'ADD',
+			payload: {
+				selector: blockId,
+				title,
+			},
+		});
+	}, []);
+
+	const skillCategoriesElem = skillCategories.map(skillCategory => (
+		<SkillCategory key={skillCategory.id} skillCategory={skillCategory} />
+	));
+
 	return (
-		<div className={styles['skills-block']} {...props}>
+		<div id={blockId} className={styles['skills-block']} {...props}>
 			<h2>{title}</h2>
-			{skillCategories.map(skillCategory => (
-				<SkillCategory key={skillCategory.id} skillCategory={skillCategory} />
-			))}
+			{skillCategoriesElem}
 		</div>
 	);
 }

@@ -4,15 +4,16 @@ import styles from '../../styles/components/blocks/HomeProjectsBlock.module.scss
 import homeStyles from '../../styles/Home.module.scss';
 
 // Providers
-import { ProjectsContext } from '../../providers/Provider.jsx';
+import { ProviderContext } from '../../providers/Provider.jsx';
 
 // Components
 import Button from '../buttons/Button';
 import { apiBase } from '../../helpers/helpers';
 
 export default function HomeProjectsBlock() {
+	// TODO Add bookmark functionality
 	const { projectsData, projectsLoading, projectsError, setColor } =
-		useContext(ProjectsContext);
+		useContext(ProviderContext);
 	const [index, setIndex] = useState(0);
 
 	if (projectsLoading) return null;

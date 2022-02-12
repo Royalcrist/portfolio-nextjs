@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -13,6 +13,7 @@ import {
 	MediumButton,
 	PhoneButton,
 } from '../buttons/SocialMediaButtons';
+import { ProviderContext } from '../../providers/Provider';
 
 export default function InfoSidebar({
 	info,
@@ -22,8 +23,21 @@ export default function InfoSidebar({
 		gradient: 'linear-gradient(-135deg, #ffbb00, #ff8800)',
 	},
 }) {
-	const { locale: currentLocale, locales } = useRouter();
-	const { title, subtitle, images, sections } = info;
+	const { locale: currentLocale } = useRouter();
+	const { title, subtitle, images } = info;
+	const { blockBuilderState } = useContext(ProviderContext);
+
+	const [bookmarks, setBookmarks] = useState([]);
+
+	useEffect(() => {
+		setBookmarks(
+			blockBuilderState.links.map(link => (
+				<a href={`#${link.selector}`} className={styles['bookmark-link']}>
+					{link.title}
+				</a>
+			)),
+		);
+	}, [blockBuilderState]);
 
 	return (
 		<div className={styles['info-sidebar-container']}>
@@ -65,37 +79,20 @@ export default function InfoSidebar({
 				</div>
 				<div className={styles['info']}>
 					<div className={`${styles['info-row']} ${styles['info-title']}`}>
-						<h2 className={styles['title']}>{title}</h2>
+						<h3 className={styles['title']}>{title}</h3>
 						<p className={`${styles['subtitle']}`}>{subtitle}</p>
 					</div>
 					<div className={`${styles['info-row']} ${styles['bookmarks']}`}>
 						<div className={styles['bookmarks-container']}>
-							{sections &&
-								sections.map(section => (
-									<a
-										href={`#${section.id}`}
-										className={styles['bookmark-link']}
-									>
-										Tech enthusiast
-									</a>
-								))}
+							{bookmarks.length > 0 && bookmarks}
 						</div>
 					</div>
 					<div className={styles['social-media']}>
-						<MediumButton />
+						{/* <MediumButton /> */}
 						<GithubButton />
 						<LinkedinButton />
 						<MailButton />
 						<PhoneButton color={color} />
-						{/* <h6>Reach me on</h6>
-						<div className={styles['media-container']}>
-							{socialMedias.map(socialMedia => (
-								<SocialMedia key={socialMedia.id} media={socialMedia} />
-							))}
-						</div> */}
-						{/* {socialMedias.map(socialMedia => (
-					<SocialMedia key={socialMedia.id} media={socialMedia} />
-				))} */}
 					</div>
 				</div>
 			</div>

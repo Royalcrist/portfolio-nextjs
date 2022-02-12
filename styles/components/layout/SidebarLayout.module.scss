@@ -1,3 +1,13 @@
+.grid-column-sidebar {
+	display: grid;
+	grid-template-columns: var(--horizontal-margin) 28ch repeat(4, 1fr) 1.5fr var(
+			--horizontal-margin
+		);
+	grid-gap: 16px;
+	grid-template-areas: 'sidebar sidebar . content content content button .';
+	scroll-behavior: smooth;
+}
+
 .info-container {
 	grid-column: 1/-1;
 	grid-row: 1;
@@ -5,7 +15,7 @@
 }
 
 .info-sections {
-	grid-column: 4/7;
+	grid-area: content;
 	padding-top: 2rem;
 	max-width: 60ch;
 	justify-self: center;
@@ -13,8 +23,7 @@
 }
 
 .languange-button {
-	grid-column: 7;
-	grid-row: 1;
+	grid-area: button;
 	margin-top: var(--top-margin);
 	justify-self: end;
 }

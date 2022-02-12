@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { ProjectsProvider } from '../providers/Provider.jsx';
+import { Provider } from '../providers/Provider.jsx';
 import '../styles/globals.scss';
 
 import { ApolloProvider } from '@apollo/client';
@@ -18,9 +18,9 @@ function MyApp({ Component, pageProps }) {
 
 	return (
 		<ApolloProvider client={client}>
-			<ProjectsProvider>
+			<Provider>
 				<Component {...pageProps} />
-			</ProjectsProvider>
+			</Provider>
 		</ApolloProvider>
 	);
 }

@@ -24,7 +24,6 @@ export default function BlocksBuilder({ info }) {
 					// ComponentPagesTimeline: (
 					// 	<TimelineBlock key={section.id} {...section} />
 					// ),
-					//TODO ComponentPagesSkills
 					ComponentPagesSkills: (
 						<SkillsBlock
 							id={section.id}

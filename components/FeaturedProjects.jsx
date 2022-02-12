@@ -6,19 +6,19 @@ import styles from '../styles/components/FeaturedProjects.module.scss';
 import Button from './buttons/Button';
 
 // Providers
-import { ProjectsContext } from '../providers/Provider.jsx';
+import { ProviderContext } from '../providers/Provider.jsx';
 
 const FeaturedProjects = props => {
-	const { projects } = useContext(ProjectsContext);
+	const { projects } = useContext(ProviderContext);
 
 	return (
 		<div className={props.className}>
 			<h2>Feature projects</h2>
-			<div className='related-container'>
+			<div className="related-container">
 				{projects.map(project => (
-					<div key={project.id} className='related'>
+					<div key={project.id} className="related">
 						<img
-							className='related-img'
+							className="related-img"
 							src={project.imgLq}
 							alt={project.name}
 						/>
@@ -31,7 +31,7 @@ const FeaturedProjects = props => {
 				))}
 			</div>
 
-			<div className='more-projects'>
+			<div className="more-projects">
 				<h2>And there are more...</h2>
 				<Button url={'/#projects'}>Discover all</Button>
 			</div>
