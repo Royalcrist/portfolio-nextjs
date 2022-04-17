@@ -54,7 +54,7 @@ export default function ParagraphBlock({
 			payload: {
 				id,
 				selector: blockId,
-				title: titleElem.current.innerHTML.trim(),
+				title: titleElem?.current?.innerHTML?.trim() || '',
 			},
 		});
 	}, []);

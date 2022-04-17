@@ -17,7 +17,10 @@ export default function HomeSectionBlock({
 }) {
 	// TODO Add bookmark functionality
 	return (
-		<section id={linkId} className={`grid-column container`}>
+		<section
+			id={linkId}
+			className={`grid-column container ${styles['home-section']}`}
+		>
 			<div className={styles['img-container']}>
 				{image ? (
 					<div className={styles['home-pic']}>

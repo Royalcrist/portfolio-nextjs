@@ -59,7 +59,7 @@ html {
 	background-color: #f7f7fa;
 	align-items: center;
 	justify-content: center;
-	font-size: 16px;
+	font-size: 75%;
 }
 
 .app {
@@ -141,8 +141,8 @@ button {
 
 .grid-column {
 	display: grid;
-	grid-template-columns: repeat(14, 6.5%);
-	grid-gap: 0 0.7%;
+	grid-template-columns: 8.5% repeat(4, 17%) 8.5%;
+	grid-gap: 0 3%;
 }
 
 .blue {
@@ -197,6 +197,18 @@ button {
 	width: 100%;
 	background-color: var(--background-light);
 	overflow: hidden;
+}
+
+.grid-column {
+	display: grid;
+	grid-template-columns: 1rem repeat(4, 1fr) 1rem;
+	grid-gap: 0;
+}
+
+@media screen and (min-width: 360px) {
+	html {
+		font-size: 87.5%;
+	}
 }
 
 // @media screen and (min-width: 1400px) and (min-height: 900px) and (orientation: landscape) {
